@@ -174,7 +174,15 @@ z-index:9999;
 </nav>
 
 <div class="container"><div class="card">
+  
 <h2>Our Services</h2>
+
+<input
+type="text"
+id="searchBox"
+placeholder="🔍 Search Service..."
+onkeyup="searchServices()"
+style="width:100%;padding:12px;margin:15px 0;border:2px solid #004aad;border-radius:8px;font-size:16px;">
 
 <div class="services" id="services"> 
 
@@ -265,5 +273,21 @@ West Bengal - 721440
 
 <a href="tel:9832889193" class="float-call">📞</a>
 <a href="https://wa.me/918116326876" class="float-whatsapp" target="_blank">💬</a>
+<script>
+function searchServices() {
+    let input = document.getElementById("searchBox").value.toLowerCase();
+    let services = document.getElementsByClassName("service");
+
+    for (let i = 0; i < services.length; i++) {
+        let text = services[i].innerText.toLowerCase();
+        if (text.indexOf(input) > -1) {
+            services[i].style.display = "";
+        } else {
+            services[i].style.display = "none";
+        }
+    }
+}
+</script>
+
 </body>
 </html>
