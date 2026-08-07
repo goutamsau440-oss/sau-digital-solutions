@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://goutamsau440-oss.github.io/sau-digital-solutions/</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+<url>
+<loc>https://goutamsau440-oss.github.io/sau-digital-solutions/</loc>
+</url>
+
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/aadhaar.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/pan.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/voter.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/passport.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/banking.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/income.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/caste.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/residence.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/birth.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/death.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/driving.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/electricity.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/recharge.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/money-transfer.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/insurance.html</loc></url>
+<url><loc>https://goutamsau440-oss.github.io/sau-digital-solutions/online-form.html</loc></url>
 
 </urlset>
