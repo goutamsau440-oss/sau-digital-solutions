@@ -3,1411 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAU DIGITAL SOLUTIONS | CSC & A to Z Digital Online Services</title>
-    <meta name="description" content="Sau Digital Solutions is a trusted CSC & Digital Online Service center in Krishnanagar, Pania, Patashpur II, Purba Medinipur providing Aadhaar, PAN, Voter ID, Passport, Banking, Form Fill-up, and all online services.">
+    <title>SAU DIGITAL SOLUTIONS - CSC & SBI Banking CSP Portal</title>
     <style>
         :root {
-            --primary-blue: #004aad;
-            --deep-navy: #003b8e;
-            --emerald-teal: #00b894;
-            --whatsapp-green: #25D366;
-            --call-blue: #007bff;
-            --warm-orange: #ff9800;
-            --danger-red: #d63031;
-            --light-slate: #eef5ff;
-            --off-white: #f5f7fa;
-            --text-dark: #1e272e;
-            --text-muted: #57606f;
-            --white: #ffffff;
-            --shadow: 0 4px 15px rgba(0, 59, 142, 0.08);
+            --primary: #0a192f;
+            --secondary: #172a45;
+            --accent: #ff9933;
+            --success: #28a745;
+            --text-main: #ffffff;
+            --text-muted: #a8b2d1;
+            --card-bg: #ffffff;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--off-white);
-            color: var(--text-dark);
+            background-color: #f0f4f8;
+            color: #333;
             line-height: 1.6;
-            scroll-behavior: smooth;
         }
 
-        /* Top Live Status & Info Bar */
-        .top-bar {
-            background-color: var(--deep-navy);
-            color: var(--white);
-            padding: 8px 16px;
-            font-size: 0.9rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.82rem;
-            background: var(--emerald-teal);
-            color: var(--white);
-        }
-        .status-badge.closed {
-            background: var(--warm-orange);
-            color: #000;
-        }
-        .top-bar a {
-            color: #ffd700;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* Scrolling Ticker Notice */
-        .ticker-wrap {
-            background: #fff3cd;
-            border-bottom: 2px solid var(--warm-orange);
-            color: #856404;
-            padding: 8px 15px;
-            font-size: 0.95rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* Top Hero Header Section */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-main);
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
             overflow: hidden;
-        }
-        .ticker-label {
-            background: var(--danger-red);
-            color: var(--white);
-            padding: 3px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        .ticker-text {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            border-bottom: 6px solid var(--accent);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
 
-        /* Header & Navigation */
-        header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--deep-navy));
-            color: var(--white);
-            padding: 14px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 990;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        .hero-banner h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
-        .header-container {
-            max-width: 1240px;
-            margin: 0 auto;
+
+        .hero-banner p {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: -30px auto 40px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Live Status & Quick Info Ribbon */
+        .status-ribbon {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: space-around;
             flex-wrap: wrap;
             gap: 15px;
-        }
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--white);
-        }
-        .brand img {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--white);
-            padding: 3px;
-            object-fit: contain;
-        }
-        .brand-text h1 {
-            font-size: 1.45rem;
-            letter-spacing: 0.5px;
-        }
-        .brand-text p {
-            font-size: 0.85rem;
-            color: #d1e8ff;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 12px;
-            border-radius: 6px;
-            transition: background 0.2s;
-            font-size: 0.92rem;
-        }
-        nav a:hover, nav a:focus {
-            background-color: var(--emerald-teal);
+            border-left: 6px solid var(--success);
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(0, 74, 173, 0.93), rgba(0, 184, 148, 0.88)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80') center/cover;
-            color: var(--white);
-            text-align: center;
-            padding: 45px 20px;
+        .status-item {
+            font-size: 1.05rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            color: #444;
         }
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .hero-tag {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 5px 14px;
+
+        .status-badge {
+            background-color: #e1f5fe;
+            color: #0288d1;
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
+            font-size: 0.85rem;
+            margin-left: 8px;
             font-weight: bold;
         }
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 12px;
-        }
-        .hero p {
-            font-size: 1.08rem;
-            margin-bottom: 24px;
-            color: #f0f8ff;
-        }
-        .cta-buttons {
+
+        /* Category Sections */
+        .section-title {
+            color: var(--primary);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 45px 0 20px 0;
             display: flex;
-            justify-content: center;
-            gap: 12px;
+            align-items: center;
+            border-bottom: 3px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .section-title span {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            margin-right: 12px;
+        }
+
+        /* Ultra Grid Layout */
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .portal-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border-top: 4px solid #cbd5e1;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .portal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+
+        .portal-card h3 {
+            font-size: 1.25rem;
+            color: #1a202c;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .portal-card p {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* Action Buttons */
+        .portal-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .portal-btn:hover {
+            background: linear-gradient(135deg, var(--accent), #e68a00);
+            color: #fff;
+        }
+
+        /* Advanced Contact Desk */
+        .contact-desk {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            padding: 35px;
+            margin-top: 50px;
+            border-top: 6px solid var(--primary);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .desk-info h4 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .desk-info p {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: #475569;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
             flex-wrap: wrap;
         }
-        .btn {
+
+        .action-btn {
+            padding: 14px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 22px;
-            border-radius: 8px;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 0.98rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: none;
-            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.2s;
         }
-        .btn:hover {
+
+        .btn-phone {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        .btn-whatsapp-active {
+            background-color: #25d366;
+            color: white;
+        }
+
+        .action-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        .btn-call { background-color: var(--warm-orange); color: #000; }
-        .btn-wa { background-color: var(--whatsapp-green); color: var(--white); }
-        .btn-doc { background-color: var(--white); color: var(--primary-blue); }
-
-        /* Main Container */
-        .container {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 28px;
-        }
-        .section-title h2 {
-            font-size: 1.75rem;
-            color: var(--primary-blue);
-            margin-bottom: 8px;
-        }
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 1rem;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
         }
 
-        /* Quick 1-Click Document Finder Buttons */
-        .quick-doc-bar {
-            background: var(--white);
-            padding: 22px;
-            border-radius: 14px;
-            box-shadow: var(--shadow);
-            margin-bottom: 35px;
-            border: 2px solid #d8e6ff;
-            text-align: center;
-        }
-        .quick-doc-bar h3 {
-            color: var(--deep-navy);
-            margin-bottom: 14px;
-            font-size: 1.2rem;
-        }
-        .quick-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-        .q-btn {
-            background: var(--light-slate);
-            color: var(--primary-blue);
-            border: 1px solid #b8d4ff;
-            padding: 10px 16px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 0.92rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .q-btn:hover {
-            background: var(--primary-blue);
-            color: var(--white);
-        }
-
-        /* Notice Board Section */
-        .notice-board {
-            background: linear-gradient(135deg, #ffffff, #f0f7ff);
-            border-radius: 16px;
-            padding: 28px;
-            box-shadow: var(--shadow);
-            border-left: 6px solid var(--warm-orange);
-        }
-        .notice-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 18px;
-            margin-top: 18px;
-        }
-        .notice-card {
-            background: var(--white);
-            border: 1px solid #e1e8f0;
-            border-radius: 12px;
-            padding: 18px;
-            position: relative;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .notice-badge {
-            display: inline-block;
-            background: #ffeaa7;
-            color: #d63031;
-            font-weight: bold;
-            font-size: 0.78rem;
-            padding: 3px 10px;
-            border-radius: 4px;
-            margin-bottom: 8px;
-            width: fit-content;
-        }
-        .notice-card h4 {
-            color: var(--deep-navy);
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-        .notice-card p {
-            font-size: 0.92rem;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-        }
-        .notice-date {
-            font-size: 0.85rem;
-            font-weight: bold;
-            color: var(--danger-red);
-            margin-bottom: 12px;
-        }
-        .notice-actions {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        /* Search & Category Filter */
-        .search-filter-wrap {
-            margin-bottom: 30px;
-        }
-        .search-box {
-            max-width: 650px;
-            margin: 0 auto 18px auto;
-        }
-        .search-box input {
-            width: 100%;
-            padding: 14px 22px;
-            font-size: 1rem;
-            border: 2px solid var(--primary-blue);
-            border-radius: 30px;
-            outline: none;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-        .filter-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .tab-btn {
-            background: var(--white);
-            color: var(--text-dark);
-            border: 1px solid #ccd6e0;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .tab-btn.active, .tab-btn:hover {
-            background: var(--primary-blue);
-            color: var(--white);
-            border-color: var(--primary-blue);
-        }
-
-        /* Services Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-            gap: 22px;
-        }
-        .card {
-            background: var(--white);
-            border-radius: 14px;
-            padding: 22px;
-            box-shadow: var(--shadow);
-            border-top: 5px solid var(--primary-blue);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-        }
-        .card h3 {
-            color: var(--primary-blue);
-            margin-bottom: 12px;
-            font-size: 1.22rem;
-            border-bottom: 1px solid #eef2f7;
-            padding-bottom: 8px;
-        }
-        .card ul {
-            list-style: none;
-            margin-bottom: 18px;
-        }
-        .card ul li {
-            padding: 6px 0;
-            border-bottom: 1px dashed #e6ecf2;
-            font-size: 0.94rem;
-        }
-        .card ul li:last-child {
-            border-bottom: none;
-        }
-        .card ul li::before {
-            content: "✔ ";
-            color: var(--emerald-teal);
-            font-weight: bold;
-        }
-        .card-footer {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: auto;
-            padding-top: 12px;
-            border-top: 1px solid #f0f4f8;
-        }
-        .btn-sm {
-            flex: 1;
-            padding: 9px 12px;
-            border-radius: 8px;
-            font-size: 0.88rem;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-doc-modal {
-            background: var(--light-slate);
-            color: var(--primary-blue);
-            border: 1px solid #b8d4ff;
-        }
-        .btn-doc-modal:hover {
-            background: var(--primary-blue);
-            color: var(--white);
-        }
-        .btn-wa-sm {
-            background: var(--whatsapp-green);
-            color: var(--white);
-        }
-
-        /* Modal Popup for 1-Click Documents */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.65);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            padding: 15px;
-        }
-        .modal-overlay.active {
-            display: flex;
-        }
-        .modal-box {
-            background: var(--white);
-            max-width: 600px;
-            width: 100%;
-            border-radius: 16px;
-            padding: 25px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border-top: 6px solid var(--emerald-teal);
-        }
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #f1f2f6;
-            border: none;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            color: var(--text-dark);
-        }
-        .modal-box h3 {
-            color: var(--primary-blue);
-            font-size: 1.35rem;
-            margin-bottom: 12px;
-            padding-right: 35px;
-        }
-        .modal-box ul {
-            padding-left: 20px;
-            margin-bottom: 18px;
-        }
-        .modal-box ul li {
-            margin-bottom: 8px;
-            font-size: 0.98rem;
-        }
-        .modal-tip {
-            background: #fff8e1;
-            border-left: 4px solid var(--warm-orange);
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            margin-bottom: 18px;
-        }
-
-        /* Complete Document Guide Section */
-        .docs-section {
-            background-color: var(--light-slate);
-            border-radius: 16px;
-            padding: 35px 25px;
-        }
-        .doc-card {
-            background: var(--white);
-            border-left: 5px solid var(--emerald-teal);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .doc-card h3 {
-            color: var(--deep-navy);
-            margin-bottom: 10px;
-            font-size: 1.15rem;
-        }
-        .doc-card ul {
-            padding-left: 18px;
-            font-size: 0.93rem;
-        }
-        .doc-card ul li {
-            margin-bottom: 6px;
-        }
-
-        /* Location, Hours & Quick Inquiry Form */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-        .info-box {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 14px;
-            box-shadow: var(--shadow);
-        }
-        .info-box h3 {
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-            font-size: 1.28rem;
-            border-bottom: 2px solid var(--light-slate);
-            padding-bottom: 8px;
-        }
-        .hours-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .hours-table th, .hours-table td {
-            padding: 9px 6px;
-            border-bottom: 1px solid #eee;
-            text-align: left;
-            font-size: 0.9rem;
-        }
-        .map-frame {
-            width: 100%;
-            height: 270px;
-            border: 0;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
-        .form-group {
-            margin-bottom: 14px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-            font-size: 0.92rem;
-        }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 11px;
-            border: 1px solid #ccd6e0;
-            border-radius: 8px;
-            font-size: 0.95rem;
-        }
-
-        /* FAQ Section */
-        .faq-item {
-            background: var(--white);
-            border-radius: 10px;
-            margin-bottom: 12px;
-            padding: 15px 20px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-        }
-        .faq-item summary {
-            font-weight: bold;
-            color: var(--primary-blue);
-            cursor: pointer;
-            font-size: 1.02rem;
-        }
-        .faq-item p {
-            margin-top: 10px;
-            font-size: 0.95rem;
-            color: var(--text-dark);
-        }
-
-        /* Floating Contact Widgets */
-        .floating-widgets {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 1500;
-        }
-        .float-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 18px;
-            border-radius: 50px;
-            color: var(--white);
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            font-size: 0.92rem;
-        }
-        .float-wa { background-color: var(--whatsapp-green); }
-        .float-call { background-color: var(--call-blue); }
-
-        /* Footer */
         footer {
-            background-color: var(--deep-navy);
-            color: var(--white);
+            background: var(--primary);
+            color: var(--text-muted);
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
-            font-size: 0.9rem;
-        }
-        footer p {
-            margin-bottom: 8px;
-            color: #d1e8ff;
+            padding: 25px 20px;
+            margin-top: 60px;
+            border-top: 5px solid var(--accent);
+            font-size: 0.95rem;
         }
 
-        @media (max-width: 650px) {
-            .hero h2 { font-size: 1.5rem; }
-            .header-container { flex-direction: column; text-align: center; }
-            nav ul { justify-content: center; }
-            .top-bar { justify-content: center; text-align: center; }
+        footer strong {
+            color: white;
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Live Status & Contact Bar -->
-    <div class="top-bar">
-        <div>
-            <span id="liveShopStatus" class="status-badge">🟢 Checking Status...</span>
-            <span style="margin-left: 8px;">🕘 প্রতিদিন: সকাল ৯টা - দুপুর ২টা এবং বিকেল ৪টে - রাত ১০টা</span>
-        </div>
-        <div>
-            📍 কৃষ্ণনগর, পানিয়া, পটাশপুর ২, পূর্ব মেদিনীপুর (৭২১৪৪০) | 📞 <a href="tel:08116326876">081163 26876</a>
-        </div>
-    </div>
-
-    <!-- Scrolling Urgent Notice Bar -->
-    <div class="ticker-wrap">
-        <span class="ticker-label">📢 জরুরি আপডেট</span>
-        <div class="ticker-text" id="scrollingNoticeText">
-            নতুন প্যান কার্ড, আধার কার্ড আপডেট, ভোটার কার্ড সংশোধন, পাসপোর্ট আবেদন, সব ধরনের স্কলারশিপ ও সরকারি চাকরির ফর্ম ফিলাপ চলছে। বাড়ি বসে WhatsApp-এ ডকুমেন্ট পাঠিয়ে কাজ করার সুবিধা রয়েছে!
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <a href="#" class="brand">
-                <img src="https://goutamsau440-oss.github.io/sau-digital-solutions/logo.png" alt="Sau Digital Solutions Logo" onerror="this.style.display='none'">
-                <div class="brand-text">
-                    <h1>SAU DIGITAL SOLUTIONS</h1>
-                    <p>CSC & Digital Online Services | আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</p>
-                </div>
-            </a>
-            <nav aria-label="Main Navigation">
-                <ul>
-                    <li><a href="#notices">🔔 নোটিশ বোর্ড</a></li>
-                    <li><a href="#services">🛠️ A-to-Z সার্ভিস</a></li>
-                    <li><a href="#documents">📋 কি কি ডকুমেন্ট লাগবে</a></li>
-                    <li><a href="#location">📍 লোকেশন ও যোগাযোগ</a></li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Premium Header Area -->
+    <header class="hero-banner">
+        <h1>SAU DIGITAL SOLUTIONS</h1>
+        <p>CSC e-Governance & SBI CSP Banking Hub</p>
+        <div class="hero-subtitle">কৃষ্ণনগর, পানিয়া, পটাশপুর • আপনার বিশ্বস্ত ডিজিটাল সেবা কেন্দ্র</div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <span class="hero-tag">✔ Professional Digital Service Centre • Friendly & Genuine Work</span>
-            <h2>সাইবার ক্যাফে ও CSC সেন্টারের সমস্ত (A to Z) কাজের এক বিশ্বস্ত ঠিকানা</h2>
-            <p>আধার কার্ড, প্যান কার্ড, ভোটার কার্ড, পাসপোর্ট, সরকারি প্রকল্প, ব্যাংকিং (টাকা তোলা ও পাঠানো), জমির পরচা/খাজনা, বিল পেমেন্ট এবং সমস্ত চাকরির ও পরীক্ষার ফর্ম ফিলাপ নির্ভুলভাবে করা হয়।</p>
-            <div class="cta-buttons">
-                <a href="tel:08116326876" class="btn btn-call">📞 কল করুন: 081163 26876</a>
-                <a href="https://wa.me/918116326876?text=নমস্কার,%20আমি%20SAU%20DIGITAL%20SOLUTIONS%20থেকে%20একটি%20কাজের%20বিষয়ে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer" class="btn btn-wa">💬 WhatsApp করুন</a>
-                <a href="#documents" class="btn btn-doc">📋 কোন কাজে কি ডকুমেন্ট লাগবে দেখুন</a>
+    <div class="container">
+        
+        <!-- Status & Operational Ribbon -->
+        <div class="status-ribbon">
+            <div class="status-item">🕒 <strong>কাজের সময়:</strong> সকাল ০৭:৩০ AM - রাত ১০:০০ PM <span class="status-badge" style="background-color: #e8f5e9; color: #2e7d32;">সর্বদা খোলা</span></div>
+            <div class="status-item">📍 <strong>ঠিকানা:</strong> কৃষ্ণনগর, পানিয়া, পটাশপুর II, পূর্ব মেদিনীপুর</div>
+        </div>
+
+        <!-- CATEGORY 1 -->
+        <h2 class="section-title"><span>০১</span> সরকারি মুখ্য পরিচয়পত্র ও কার্ড (Govt Identity Cards)</h2>
+        <div class="portal-grid">
+            <div class="portal-card" style="border-top-color: #ff9933;">
+                <h3>🆔 আধার কার্ড (Aadhaar)</h3>
+                <p>নতুন আধার কার্ড, বায়োমেট্রিক ও ডেমোগ্রাফিক সংশোধন এবং ডাউনলোড পরিষেবা।</p>
+                <a href="aadhar.html" class="portal-btn">পোর্টাল ওপেন করুন &rarr;</a>
+            </div>
+            <div class="portal-card" style="border-top-color: #d9381e;">
+                <h3>💳 প্যান কার্ড (PAN)</h3>
+                <p>নতুন প্যান কার্ড আবেদন এবং মাত্র কয়েক মিনিটে ইনস্ট্যান্ট প্যান ডাউনলোডের সুবিধা।</p>
+                <a href="pan.html" class="portal-btn">পোর্টাল ওপেন করুন &rarr;</a>
+            </div>
+            <div class="portal-card" style="border-top-color: #0056b3;">
+                <h3>🗳️ ভোটার কার্ড (Voter ID)</h3>
+                <p>নতুন ভোটার কার্ডের নাম নথিভুক্তকরণ, সংশোধন এবং ডিজিটাল ই-ভোটার কার্ড প্রিন্ট।</p>
+                <a href="voter.html" class="portal-btn">পোর্টাল ওপেন করুন &rarr;</a>
+            </div>
+            <div class="portal-card" style="border-top-color: #28a745;">
+                <h3>🌾 রেশন কার্ড (Ration)</h3>
+                <p>ডিজিটাল রেশন কার্ডের স্ট্যাটাস চেক, নতুন মেম্বার অ্যাড এবং সংশোধন লিংক।</p>
+                <a href="ration.html" class="portal-btn">পোর্টাল ওপেন করুন &rarr;</a>
             </div>
         </div>
-    </section>
 
-    <main>
-        <!-- 1-Click Quick Document Checker Bar -->
-        <section class="container" style="padding-bottom: 10px;">
-            <div class="quick-doc-bar">
-                <h3>⚡ এক ক্লিকে দেখে নিন কোন কাজের জন্য কী কী ডকুমেন্ট লাগবে (1-Click Document Guide)</h3>
-                <div class="quick-buttons">
-                    <button class="q-btn" onclick="openDocModal('aadhaar')">🪪 আধার কার্ডের কাজ</button>
-                    <button class="q-btn" onclick="openDocModal('pan')">💳 প্যান কার্ড (PAN)</button>
-                    <button class="q-btn" onclick="openDocModal('voter')">🗳️ ভোটার কার্ড</button>
-                    <button class="q-btn" onclick="openDocModal('passport')">🛂 পাসপোর্ট আবেদন</button>
-                    <button class="q-btn" onclick="openDocModal('certificates')">🏛️ কাস্ট / ইনকাম / ডোমিসাইল</button>
-                    <button class="q-btn" onclick="openDocModal('schemes')">🌾 রেশন / লক্ষ্মীর ভাণ্ডার / প্রকল্প</button>
-                    <button class="q-btn" onclick="openDocModal('exams')">🎓 পরীক্ষা, চাকরি ও স্কলারশিপ</button>
-                    <button class="q-btn" onclick="openDocModal('banking')">🏦 টাকা তোলা ও ব্যাংকিং</button>
-                    <button class="q-btn" onclick="openDocModal('land')">🗺️ জমির পরচা ও খাজনা</button>
-                    <button class="q-btn" onclick="openDocModal('driving')">🚗 ড্রাইভিং লাইসেন্স ও গাড়ি</button>
-                </div>
+        <!-- CATEGORY 2 -->
+        <h2 class="section-title"><span>০২</span> সরকারি শংসাপত্র ও লাইসেন্স (Govt Certificates & Licenses)</h2>
+        <div class="portal-grid">
+            <div class="portal-card" style="border-top-color: #17a2b8;">
+                <h3>👶 জন্ম শংসাপত্র (Birth Certificate)</h3>
+                <p>অনলাইনে নতুন জন্ম সার্টিফিকেটের আবেদন ও ভেরিফিকেশন ট্র্যাকিং।</p>
+                <a href="birth.html" class="portal-btn">পোর্টাল ওপেন করুন &rarr;</a>
             </div>
-        </section>
-
-        <!-- Notice Board Section (Exams, Form Fill-up, Schemes) -->
-        <section id="notices" class="container" style="padding-top: 20px;">
-            <div class="notice-board">
-                <div class="section-title" style="margin-bottom: 10px;">
-                    <h2>🔔 ফর্ম ফিলাপ ও জরুরি নোটিশ বোর্ড (Latest Notices & Deadlines)</h2>
-                    <p>চলতি চাকরির পরীক্ষা, স্কলারশিপ ও সরকারি প্রকল্পের ফর্ম ফিলাপের আপডেট</p>
-                </div>
-                <div class="notice-grid" id="noticeContainer">
-                    <!-- Notices are automatically loaded from the script at the bottom -->
-                </div>
-            </div>
-        </section>
-
-        <!-- A to Z Services Section -->
-        <section id="services" class="container">
-            <div class="section-title">
-                <h2>🛠️ আমাদের A to Z সমস্ত পরিষেবা (All CSC & Cyber Cafe Services)</h2>
-                <p>যেকোনো কাজের নাম লিখে সার্চ করুন অথবা ক্যাটাগরি বাটনে ক্লিক করে দেখে নিন</p>
-            </div>
-
-            <div class="search-filter-wrap">
-                <div class="search-box">
-                    <input type="text" id="serviceSearch" placeholder="🔍 এখানে কাজের নাম লিখুন (যেমন: আধার, প্যান, পাসপোর্ট, খাজনা, টাকা তোলা, ফর্ম ফিলাপ...)" aria-label="পরিষেবা খুঁজুন">
-                </div>
-                <div class="filter-tabs">
-                    <button class="tab-btn active" onclick="filterServices('all', this)">সব কাজ (All Services)</button>
-                    <button class="tab-btn" onclick="filterServices('id', this)">পরিচয়পত্র (ID Cards)</button>
-                    <button class="tab-btn" onclick="filterServices('govt', this)">সরকারি প্রকল্প ও সার্টিফিকেট</button>
-                    <button class="tab-btn" onclick="filterServices('student', this)">পরীক্ষা ও চাকরির ফর্ম</button>
-                    <button class="tab-btn" onclick="filterServices('bank', this)">ব্যাংকিং ও বিল পেমেন্ট</button>
-                    <button class="tab-btn" onclick="filterServices('land', this)">জমির কাজ ও পরিবহন</button>
-                    <button class="tab-btn" onclick="filterServices('print', this)">প্রিন্ট ও সাইবার সার্ভিস</button>
-                </div>
-            </div>
-
-            <div class="grid" id="serviceGrid">
-                <!-- Service 1: Aadhaar -->
-                <div class="card service-item" data-category="id">
-                    <div>
-                        <h3>🪪 আধার কার্ড পরিষেবা (Aadhaar Services)</h3>
-                        <ul>
-                            <li>আধার কার্ড ডাউনলোড ও রঙিন পিভিসি (PVC) প্রিন্ট ও ল্যামিনেশন</li>
-                            <li>আধার কার্ডের ঠিকানা (Address) পরিবর্তন ও সংশোধন সহায়তা</li>
-                            <li>১০ বছরের পুরনো আধার কার্ডে ডকুমেন্ট আপডেট (Document Update)</li>
-                            <li>আধার বায়োমেট্রিক লক/আনলক ও আধার e-KYC স্ট্যাটাস চেক</li>
-                            <li>আধার-প্যান ও আধার-ব্যাংক লিঙ্ক স্ট্যাটাস চেক</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn-sm btn-doc-modal" onclick="openDocModal('aadhaar')">📋 কি কি ডকুমেন্ট লাগবে দেখুন</button>
-                        <a href="https://wa.me/918116326876?text=নমস্কার,%20আমি%20আধার%20কার্ডের%20কাজের%20বিষয়ে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer" class="btn-sm btn-wa-sm">💬 WhatsApp</a>
-                    </div>
-                </div>
-
-                <!-- Service 2: PAN & Voter -->
-                <div class="card service-item" data-category="id">
-                    <div>
-                        <h3>💳 প্যান ও ভোটার কার্ড (PAN & Voter ID)</h3>
-                        <ul>
-                            <li>নতুন প্যান কার্ড (New PAN Card) আবেদন ও ই-প্যান (e-PAN) ডাউনলোড</li>
-                            <li>প্যান কার্ডে নাম, জন্ম তারিখ বা বাবার নাম সংশোধন ও হারানো প্যান কার্ড</li>
-                            <li>নাবালক থেকে সাবালক (Minor to Major) প্যান কার্ড আপডেট ও আধার লিঙ্ক</li>
-                            <li>নতুন ভোটার কার্ড আবেদন (Form 6) এবং ভোটার কার্ড সংশোধন (Form 8)</li>
-                            <li>বিবাহিত মহিলাদের ভোটার কার্ড ট্রান্সফার ও ডিজিটাল ভোটার কার্ড ডাউনলোড</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn-sm btn-doc-modal" onclick="openDocModal('pan')">📋 প্যান ডকুমেন্ট</button>
-                        <button class="btn-sm btn-doc-modal" onclick="openDocModal('voter')">📋 ভোটার ডকুমেন্ট</button>
-                    </div>
-                </div>
-
-                <!-- Service 3: Passport -->
-                <div class="card service-item" data-category="id">
-                    <div>
-                        <h3>🛂 পাসপোর্ট সেবা (Passport Services)</h3>
-                        <ul>
-                            <li>নতুন পাসপোর্ট (Fresh Passport) অনলাইন ফর্ম ফিলাপ</li>
-                            <li>পুরনো পাসপোর্ট রিনিউয়াল (Re-issue / Renewal of Passport)</li>
-                            <li>তৎকাল পাসপোর্ট (Tatkaal Passport) ও পুলিশ ক্লিয়ারেন্স (PCC) আবেদন</li>
-                            <li>পাসপোর্ট সেবা কেন্দ্রে (PSK/POPSK) অ্যাপয়েন্টমেন্ট স্লট বুকিং</li>
-                            <li>পাসপোর্ট ভেরিফিকেশন ডকুমেন্ট চেকলিস্ট ও ফাইল প্রস্তুতি</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn-sm btn-doc-modal" onclick="openDocModal('passport')">📋 কি কি ডকুমেন্ট লাগবে দেখুন</button>
-                        <a href="https://wa.me/918116326876?text=নমস্কার,%20আমি%20পাসপোর্ট%20আবেদনের%20বিষয়ে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer" class="btn-sm btn-wa-sm">💬 WhatsApp</a>
-                    </div>
-                </div>
-
-                <!-- Service 4: Govt Certificates -->
-                <div class="card service-item" data-category="govt">
-                    <div>
-                        <h3>🏛️ সরকারি সার্টিফিকেট (e-District Services)</h3>
-                        <ul>
-                            <li>কাস্ট সার্টিফিকেট আবেদন (SC / ST / OBC Caste Certificate)</li>
-                            <li>ভিডিও/এসডিও ইনকাম সার্টিফিকেট (BDO / SDO Income Certificate)</li>
-                            <li>স্থায়ী বাসিন্দা বা ডোমিসাইল সার্টিফিকেট (Domicile / Residential)</li>
-                            <li>জন্ম ও মৃত্যু সার্টিফিকেট (Birth & Death Certificate) অনলাইন আবেদন</li>
-                            <li>ট্রেড লাইসেন্স (Trade License) ও ফুড লাইসেন্স (FSSAI) রেজিস্ট্রেশন</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn-sm btn-doc-modal" onclick="openDocModal('certificates')">📋 কি কি ডকুমেন্ট লাগবে দেখুন</button>
-                        <a href="https://wa.me/918116326876?text=নমস্কার,%20আমি%20সরকারি%20সার্টিফিকেট%20আবেদনের%20বিষয়ে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer" class="btn-sm btn-wa-sm">💬 WhatsApp</a>
-                    </div>
-                </div>
-
-                <!-- Service 5: Govt Schemes & Ration -->
-                <div class="card service-item" data-category="govt">
-                    <div>
-                        <h3>🌾 রেশন কার্ড ও সরকারি প্রকল্প (Govt. Schemes)</h3>
-                        <ul>
-                            <li>নতুন রেশন কার্ড (Form 3/4), নাম সংযোজন, সংশোধন, সারেন্ডার ও ট্রান্সফার</li>
-                            <li>রেশন কার্ডের সাথে আধার ও মোবাইল লিঙ্ক (e-KYC) ও ই-রেশন কার্ড ডাউনলোড</li>
-                            <li>লক্ষ্মীর ভাণ্ডার, কন্যাশ্রী, রূপশ্রী, বার্ধক্য ও বিধবা ভাতার ফর্ম ও স্ট্যাটাস চেক</li>
-                            <li>পিএম কিষাণ (PM-Kisan) রেজিস্ট্রেশন, e-KYC এবং কৃষক বন্ধু প্রকল্প</li>
-                            <li>ই-শ্রম কার্ড (e-Shram), আয়ুষ্মান ভারত ও পেনশনভোগীদের জীবন প্রমাণ (Jeevan Pramaan)</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn-sm btn-doc-modal" onclick="openDocModal('schemes')">📋 কি কি ডকুমেন্ট লাগবে দেখুন</button>
-                        <a href="https://wa.me/918116326876?text=নমস্কার,%20আমি%20রেশন%20কার্ড%20বা%20সরকারি%20প্রকল্পের%20বিষয়ে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer" class="btn-sm btn-wa-sm">💬 WhatsApp</a>
-                    </div>
-                </div>
-
-                <!-- Service 6: Exams, Scholarships & Admissions -->
-                <div class="card service-item" data-category="student">
-                    <div>
-                        <h3>🎓 পরীক্ষা, চাকরির ফর্ম ও স্কলারশিপ (Students & Jobs)</h3>
-                        <ul>
-                            <li>সমস্ত চাকরির ফর্ম ফিলাপ: SSC, Railway, WBP, KP, WBPSC, Bank, Army, TET, UPSC</li>
-                            <li>স্কলারশিপ আবেদন ও রিনিউয়াল: স্বামী বিবেকানন্দ (SVMCM), ঐক্যশ্রী, ওয়েসিস (Oasis), NSP</li>
-                            <li>কলেজ ও ইউনিভার্সিটি অ্যাডমিশন, রেজিস্ট্রেশন ও এক্সাম ফর্ম ফিলাপ</li>
-                            <li>প্রবেশিকা পরীক্ষা: NEET, JEE, JENPAS, ANM/GNM, Polytechnic (JEXPO), ITI ফর্ম ফিলাপ</li>
-                            <li>অ্যাডমিট কার্ড ডাউনলোড, রেজাল্ট চেক এবং চাকরির জন্য সুন্দর সিভি/বায়োডাটা (CV/Resume) তৈরি</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn-sm btn-doc-modal" onclick="openDocModal('exams')">📋 কি কি ডকুমেন্ট লাগবে দেখুন</button>
-                        <a href="https://wa.me/918116326876?text=নমস্কার,%20আমি%20ফর্ম%20ফিলাপ%20বা%20স্কলারশিপের%20বিষয়ে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer" class="btn-sm btn-wa-sm">💬 WhatsApp</a>
-                    </div>
-                </div>
-
-                <!-- Service 7: Banking, AEPS & Insurance -->
-                <div class="card service-item" data-category="bank">
-                    <div>
-                        <h3>🏦 ব্যাংকিং, টাকা তোলা ও বিমা (Banking & Finance)</h3>
-                        <ul>
-                            <li><strong>আধার দিয়ে টাকা তোলা (AEPS):</strong> ফিঙ্গারপ্রিন্ট দিয়ে যেকোনো ব্যাংক থেকে নগদ টাকা তোলা</li>
-                            <li><strong>মানি ট্রান্সফার (DMT):</strong> ভারতের যেকোনো ব্যাংক অ্যাকাউন্টে সাথে সাথে টাকা পাঠানো</li>
-                            <li>ব্যাংক ব্যালেন্স ইনকোয়ারি, মিনি স্টেটমেন্ট ও জিরো ব্যালেন্স অ্যাকাউন্ট ওপেনিং সহায়তা</li>
-                            <li>পিএফ (EPFO / PF) ব্যালেন্স চেক, UAN অ্যাক্টিভেশন ও পিএফ টাকা তোলার আবেদন</li>
-                            <li>বাইক, টোটো, চারচাকা গাড়ির ইন্স্যুরেন্স (Bike/Car Insurance) এবং LIC প্রিমিয়াম জমা</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn-sm btn-doc-modal" onclick="openDocModal('banking')">📋 কি কি ডকুমেন্ট লাগবে দেখুন</button>
-                        <a href="https://wa.me/918116326876?text=নমস্কার,%20আমি%20ব্যাংকিং%20বা%20ইন্স্যুরেন্সের%20বিষয়ে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer" class="btn-sm btn-wa-sm">💬 WhatsApp</a>
-                    </div>
-                </div>
-
-                <!-- Service 8: Bills & Recharges -->
-                <div class="card service-item" data-category="bank">
-                    <div>
-                        <h3>💡 বিল পেমেন্ট ও রিচার্জ (Utility Bills & Recharge)</h3>
-                        <ul>
-                            <li>ইলেকট্রিক বিল পেমেন্ট (WBSEDCL ও অন্যান্য) এবং নতুন মিটার কানেকশন ও কোটেশন জমা</li>
-                            <li>সমস্ত কোম্পানির মোবাইল রিচার্জ (Jio, Airtel, Vi, BSNL) এবং DTH টিভি রিচার্জ</li>
-                            <li>রান্নার গ্যাস বুকিং (HP, Indane, Bharat Gas) এবং লোন ইএমআই (Loan EMI) পেমেন্ট</li>
-                            <li>গাড়ির ফাস্ট্যাগ (FASTag) রিচার্জ, ক্রেডিট কার্ড বিল ও ব্রডব্যান্ড বিল পেমেন্ট</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn-sm btn-doc-modal" onclick="openDocModal('bills')">📋 কি কি ডকুমেন্ট লাগবে দেখুন</button>
-                        <a href="https://wa.me/918116326876?text=নমস্কার,%20আমি%20ইলেকট্রিক%20বিল%20বা%20রিচার্জের%20বিষয়ে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer" class="btn-sm btn-wa-sm">💬 WhatsApp</a>
-                    </div>
-                </div>
-
-                <!-- Service 9: Land Records & Driving License -->
-                <div class="card service-item" data-category="land">
-                    <div>
-                        <h3>🗺️ জমির কাজ ও পরিবহন (Banglarbhumi & Parivahan)</h3>
-                        <ul>
-                            <li><strong>বাংলারভূমি (Banglarbhumi):</strong> জমির ডিজিটাল পরচা (ROR) ও ডিড/দলিল তোলা</li>
-                            <li>জমির খাজনা (Land Revenue) অনলাইন পেমেন্ট, মিউটেশন আবেদন ও দাগ/খতিয়ান তথ্য সার্চ</li>
-                            <li><strong>ড্রাইভিং লাইসেন্স (Parivahan):</strong> লার্নার লাইসেন্স (LL), নতুন ড্রাইভিং লাইসেন্স ও রিনিউয়াল</li>
-                            <li>গাড়ির রোড ট্যাক্স (Road Tax), ফিটনেস, নাম ট্রান্সফার ও ট্রাফিক চালান পেমেন্ট</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn-sm btn-doc-modal" onclick="openDocModal('land')">📋 জমির ডকুমেন্ট</button>
-                        <button class="btn-sm btn-doc-modal" onclick="openDocModal('driving')">📋 গাড়ির ডকুমেন্ট</button>
-                    </div>
-                </div>
-
-                <!-- Service 10: Printing, Tickets & Cyber Cafe -->
-                <div class="card service-item" data-category="print">
-                    <div>
-                        <h3>🖨️ প্রিন্টিং, টিকিট বুকিং ও সাইবার সার্ভিস</h3>
-                        <ul>
-                            <li>উচ্চমানের সাদাকালো ও রঙিন জেরক্স (Xerox) এবং কম্পিউটার প্রিন্টআউট</li>
-                            <li>হোয়াটসঅ্যাপ ও ইমেইল থেকে ডকুমেন্ট বা পিডিএফ (PDF) প্রিন্ট এবং ডকুমেন্ট স্ক্যানিং</li>
-                            <li>আর্জেন্ট পাসপোর্ট সাইজ ছবি প্রিন্ট এবং আইডি কার্ড ও মার্কশিট ল্যামিনেশন (Lamination)</li>
-                            <li>ট্রেনের টিকিট (IRCTC Train Ticket), বাস টিকিট ও ফ্লাইট টিকিট বুকিং সহায়তা</li>
-                            <li>হাসপাতালের আউটডোর ও ডাক্তারের অনলাইন অ্যাপয়েন্টমেন্ট বুকিং এবং বাংলা/ইংরেজি টাইপিং</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://wa.me/918116326876?text=নমস্কার,%20আমি%20প্রিন্টআউট%20করার%20জন্য%20ডকুমেন্ট%20পাঠাতে%20চাই।" target="_blank" rel="noopener noreferrer" class="btn-sm btn-wa-sm">📤 WhatsApp-এ ডকুমেন্ট পাঠান</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Full Required Documents Guide Section -->
-        <section id="documents" class="container">
-            <div class="docs-section">
-                <div class="section-title">
-                    <h2>📋 সমস্ত কাজের প্রয়োজনীয় ডকুমেন্টের তালিকা (A to Z Document Checklist)</h2>
-                    <p>দোকানে আসার আগে দেখে নিন আপনার কাজের জন্য কোন কোন কাগজপত্র সাথে আনতে হবে</p>
-                </div>
-
-                <div class="grid">
-                    <div class="doc-card">
-                        <h3>১. আধার কার্ড (Aadhaar Services)</h3>
-                        <ul>
-                            <li>আধার কার্ড বা এনরোলমেন্ট স্লিপ ও লিঙ্ক থাকা মোবাইল</li>
-                            <li><strong>ঠিকানা পরিবর্তনের জন্য:</strong> ভোটার কার্ড / রেশন কার্ড / পাসপোর্ট / পঞ্চায়েত প্রধান বা গ্যাজেটেড অফিসারের সার্টিফিকেট</li>
-                            <li><strong>ডকুমেন্ট আপডেটের জন্য:</strong> পরিচয়ের প্রমাণ (প্যান/ভোটার) এবং ঠিকানার প্রমাণ (ভোটার/রেশন কার্ড)</li>
-                        </ul>
-                    </div>
-
-                    <div class="doc-card">
-                        <h3>২. প্যান কার্ড (PAN Card - নতুন ও সংশোধন)</h3>
-                        <ul>
-                            <li>আধার কার্ড (Aadhaar Card) ও সক্রিয় মোবাইল নম্বর</li>
-                            <li>২ কপি রঙিন পাসপোর্ট সাইজ ছবি</li>
-                            <li><strong>সংশোধনের ক্ষেত্রে:</strong> পুরনো প্যান কার্ডের কপি ও সঠিক তথ্যের প্রমাণপত্র (যেমন: মাধ্যমিক অ্যাডমিট বা জন্ম সার্টিফিকেট)</li>
-                            <li><strong>১৮ বছরের কম হলে:</strong> বাবা বা মায়ের আধার কার্ড</li>
-                        </ul>
-                    </div>
-
-                    <div class="doc-card">
-                        <h3>৩. ভোটার কার্ড (Voter ID - নতুন, সংশোধন ও ট্রান্সফার)</h3>
-                        <ul>
-                            <li>আধার কার্ড ও ১ কপি রঙিন পাসপোর্ট সাইজ ছবি</li>
-                            <li>জন্ম তারিখের প্রমাণ (বার্থ সার্টিফিকেট / মাধ্যমিক অ্যাডমিট / প্যান কার্ড)</li>
-                            <li>পরিবারের যেকোনো একজনের (বাবা/মা/স্বামী) ভোটার কার্ড</li>
-                            <li><strong>বিবাহিত মহিলাদের ট্রান্সফারে:</strong> স্বামীর ভোটার কার্ড ও ম্যারেজ সার্টিফিকেট বা পঞ্চায়েত প্রধানের সার্টিফিকেট</li>
-                        </ul>
-                    </div>
-
-                    <div class="doc-card">
-                        <h3>৪. পাসপোর্ট আবেদন (Passport Application)</h3>
-                        <ul>
-                            <li>আধার কার্ড এবং প্যান কার্ড অথবা ভোটার কার্ড</li>
-                            <li>জন্ম প্রমাণপত্র (Birth Certificate বা মাধ্যমিক অ্যাডমিট কার্ড)</li>
-                            <li>শিক্ষাগত যোগ্যতার সার্টিফিকেট/মার্কশিট (মাধ্যমিক বা উচ্চতর - Non-ECR এর জন্য)</li>
-                            <li>ব্যাংক পাসবই এবং চালু মোবাইল নম্বর ও ইমেইল আইডি</li>
-                        </ul>
-                    </div>
-
-                    <div class="doc-card">
-                        <h3>৫. কাস্ট, ইনকাম ও ডোমিসাইল সার্টিফিকেট</h3>
-                        <ul>
-                            <li>আধার কার্ড, ভোটার কার্ড, রেশন কার্ড ও পাসপোর্ট সাইজ ছবি</li>
-                            <li>পঞ্চায়েত প্রধানের ইনকাম ও রেসিডেন্সিয়াল সার্টিফিকেট</li>
-                            <li><strong>SC/ST/OBC কাস্ট সার্টিফিকেটের জন্য অতিরিক্ত:</strong> বাবার দিকের রক্তের সম্পর্কের কারোর কাস্ট সার্টিফিকেট, বংশতালিকা এবং জমির পরচা/দলিল</li>
-                        </ul>
-                    </div>
-
-                    <div class="doc-card">
-                        <h3>৬. চাকরির ফর্ম ফিলাপ ও স্কলারশিপ</h3>
-                        <ul>
-                            <li>আধার কার্ড, পাসপোর্ট সাইজ ছবি ও সাদা কাগজে সই (Signature)</li>
-                            <li>মাধ্যমিকের অ্যাডমিট কার্ড এবং সমস্ত পাশ করা পরীক্ষার মার্কশিট ও সার্টিফিকেট</li>
-                            <li>কাস্ট সার্টিফিকেট (যদি থাকে), মোবাইল নম্বর ও ইমেইল আইডি</li>
-                            <li><strong>স্কলারশিপের জন্য অতিরিক্ত:</strong> বর্তমান ভর্তির রশিদ, ব্যাংক পাসবই এবং ভিডিও/অনলাইন ইনকাম সার্টিফিকেট</li>
-                        </ul>
-                    </div>
-
-                    <div class="doc-card">
-                        <h3>৭. রেশন কার্ড, লক্ষ্মীর ভাণ্ডার ও সরকারি প্রকল্প</h3>
-                        <ul>
-                            <li>আধার কার্ড, ভোটার কার্ড ও ব্যাংক পাসবইয়ের প্রথম পাতা</li>
-                            <li>পরিবারের রেশন কার্ড ও চালু মোবাইল নম্বর</li>
-                            <li><strong>কৃষক বন্ধু বা পিএম কিষাণের জন্য:</strong> জমির পরচা (ROR), আধার কার্ড, ভোটার কার্ড ও ব্যাংক পাসবই</li>
-                        </ul>
-                    </div>
-
-                    <div class="doc-card">
-                        <h3>৮. জমির পরচা/খাজনা, ব্যাংকিং ও ড্রাইভিং লাইসেন্স</h3>
-                        <ul>
-                            <li><strong>জমির কাজের জন্য:</strong> মৌজার নাম, জেল নম্বর (JL No), খতিয়ান বা দাগ নম্বর এবং পুরনো দলিল/পরচা</li>
-                            <li><strong>ড্রাইভিং লাইসেন্সের জন্য:</strong> আধার কার্ড, ভোটার/প্যান কার্ড, জন্ম প্রমাণ, ছবি ও রক্তের গ্রুপ (Blood Group)</li>
-                            <li><strong>টাকা তোলার জন্য:</strong> আধার নম্বর ও ব্যাংকের নাম (গ্রাহকের ফিঙ্গারপ্রিন্ট লাগবে)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Location, Timings & Quick WhatsApp Booking Form -->
-        <section id="location" class="container">
-            <div class="section-title">
-                <h2>📍 আমাদের লোকেশন, সময়সূচী ও যোগাযোগ (Location & Contact)</h2>
-                <p>সপ্তাহের প্রতিদিন (রবিবার সহ) আমাদের সেন্টার খোলা থাকে</p>
-            </div>
-
-            <div class="info-grid">
-                <!-- Box 1: Address & Map -->
-                <div class="info-box">
-                    <h3>🏢 দোকানের ঠিকানা ও ম্যাপ</h3>
-                    <p><strong>নাম:</strong> SAU DIGITAL SOLUTIONS (সাউ ডিজিটাল সলিউশনস)</p>
-                    <p style="margin-top: 6px;"><strong>ঠিকানা:</strong> প্রতাপদিঘী - বাল্যগোবিন্দপুর রোড, কৃষ্ণনগর, পানিয়া, পটাশপুর ২, পূর্ব মেদিনীপুর, পিন - ৭২১৪৪০, পশ্চিমবঙ্গ<br>
-                    <small style="color: var(--text-muted);">(PRATAPDIGHI-BALYAGOBINDAPUR RD, Krishnanagar, Pania, Patashpur II, Purba Medinipur, 721440, West Bengal)</small></p>
-                    <p style="margin-top: 8px;"><strong>📞 মোবাইল ও হোয়াটসঅ্যাপ:</strong> <a href="tel:08116326876" style="color: var(--primary-blue); font-weight: bold; text-decoration: none;">081163 26876</a></p>
-
-                    <iframe 
-                        class="map-frame"
-                        title="SAU DIGITAL SOLUTIONS Location Map"
-                        src="https://www.google.com/maps?q=SAU+DIGITAL+SOLUTIONS+Krishnanagar+Pania+Patashpur+Purba+Medinipur+721440&output=embed" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
-                </div>
-
-                <!-- Box 2: Business Hours -->
-                <div class="info-box">
-                    <h3>🕘 খোলার সময়সূচী (Opening Hours)</h3>
-                    <p>আমাদের দোকান <strong>সোমবার থেকে রবিবার (৭ দিনই)</strong> খোলা থাকে:</p>
-                    <table class="hours-table">
-                        <thead>
-                            <tr>
-                                <th>বার (Day)</th>
-                                <th>সকাল (Morning)</th>
-                                <th>বিকেল ও রাত (Evening)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td><strong>রবিবার</strong></td><td>সকাল ৯:০০ - দুপুর ২:০০</td><td>বিকেল ৪:০০ - রাত ১০:০০</td></tr>
-                            <tr><td><strong>সোমবার</strong></td><td>সকাল ৯:০০ - দুপুর ২:০০</td><td>বিকেল ৪:০০ - রাত ১০:০০</td></tr>
-                            <tr><td><strong>মঙ্গলবার</strong></td><td>সকাল ৯:০০ - দুপুর ২:০০</td><td>বিকেল ৪:০০ - রাত ১০:০০</td></tr>
-                            <tr><td><strong>বুধবার</strong></td><td>সকাল ৯:০০ - দুপুর ২:০০</td><td>বিকেল ৪:০০ - রাত ১০:০০</td></tr>
-                            <tr><td><strong>বৃহস্পতিবার</strong></td><td>সকাল ৯:০০ - দুপুর ২:০০</td><td>বিকেল ৪:০০ - রাত ১০:০০</td></tr>
-                            <tr><td><strong>শুক্রবার</strong></td><td>সকাল ৯:০০ - দুপুর ২:০০</td><td>বিকেল ৪:০০ - রাত ১০:০০</td></tr>
-                            <tr><td><strong>শনিবার</strong></td><td>সকাল ৯:০০ - দুপুর ২:০০</td><td>বিকেল ৪:০০ - রাত ১০:০০</td></tr>
-                        </tbody>
-                    </table>
-                    <div style="margin-top: 15px; background: #fff8e1; padding: 12px; border-radius: 8px; font-size: 0.9rem;">
-                        <strong>💡 পরামর্শ:</strong> অনলাইন ফর্ম ফিলাপ বা স্ক্যানিংয়ের কাজের জন্য আপনার <strong>আসল (Original) ডকুমেন্টগুলি</strong> সাথে আনলে কাজটি সবচেয়ে পরিষ্কার ও নির্ভুল হয়।
-                    </div>
-                </div>
-
-                <!-- Box 3: Direct WhatsApp Inquiry Form -->
-                <div class="info-box">
-                    <h3>📲 ঘরে বসেই কাজের বিষয়ে জানুন</h3>
-                    <p style="font-size: 0.92rem; margin-bottom: 12px;">আপনার নাম ও কোন কাজ করতে চান তা লিখে নিচের বাটনে চাপ দিন, সরাসরি আমাদের WhatsApp-এ মেসেজ চলে আসবে:</p>
-                    <form onsubmit="sendToWhatsApp(event)">
-                        <div class="form-group">
-                            <label for="custName">আপনার নাম (Your Name):</label>
-                            <input type="text" id="custName" placeholder="এখানে আপনার নাম লিখুন" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="custService">কোন কাজটি করতে চান (Select Service):</label>
-                            <select id="custService" required>
-                                <option value="আধার কার্ডের কাজ">আধার কার্ডের কাজ</option>
-                                <option value="প্যান কার্ড (নতুন / সংশোধন)">প্যান কার্ড (নতুন / সংশোধন)</option>
-                                <option value="ভোটার কার্ডের কাজ">ভোটার কার্ডের কাজ</option>
-                                <option value="পাসপোর্ট আবেদন">পাসপোর্ট আবেদন</option>
-                                <option value="চাকরির পরীক্ষা বা স্কলারশিপ ফর্ম ফিলাপ">চাকরির পরীক্ষা বা স্কলারশিপ ফর্ম ফিলাপ</option>
-                                <option value="কাস্ট / ইনকাম / ডোমিসাইল সার্টিফিকেট">কাস্ট / ইনকাম / ডোমিসাইল সার্টিফিকেট</option>
-                                <option value="রেশন কার্ড বা সরকারি প্রকল্প">রেশন কার্ড বা সরকারি প্রকল্প</option>
-                                <option value="জমির পরচা / খাজনা / মিউটেশন">জমির পরচা / খাজনা / মিউটেশন</option>
-                                <option value="ব্যাংকিং / টাকা তোলা / ইন্স্যুরেন্স">ব্যাংকিং / টাকা তোলা / ইন্স্যুরেন্স</option>
-                                <option value="প্রিন্টআউট / অন্যান্য অনলাইন কাজ">প্রিন্টআউট / অন্যান্য অনলাইন কাজ</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="custMsg">আপনার প্রশ্ন বা বিবরণ (ঐচ্ছিক):</label>
-                            <textarea id="custMsg" rows="3" placeholder="যেমন: কি কি ডকুমেন্ট লাগবে বা কত খরচ হবে জানতে চাই..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-wa" style="width: 100%;">💬 WhatsApp-এ মেসেজ পাঠান</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Frequently Asked Questions (FAQ) -->
-        <section class="container" style="padding-top: 10px;">
-            <div class="section-title">
-                <h2>❓ জনসাধারণের কিছু সাধারণ প্রশ্ন ও উত্তর (FAQ)</h2>
-            </div>
-            <details class="faq-item">
-                <summary>১. আমি কি বাড়ি বসে WhatsApp-এ ডকুমেন্ট পাঠিয়ে ফর্ম ফিলাপ বা প্রিন্ট করাতে পারি?</summary>
-                <p>হ্যাঁ, অবশ্যই! আপনি আমাদের WhatsApp নম্বরে (<strong>081163 26876</strong>) পরিষ্কারভাবে ডকুমেন্টের ছবি বা PDF পাঠিয়ে দিতে পারেন। আমরা আপনার ফর্ম ফিলাপ বা প্রিন্ট রেডি করে রাখব, যাতে দোকানে এসে আপনাকে অপেক্ষা করতে না হয়।</p>
-            </details>
-            <details class="faq-item">
-                <summary>২. দোকানে কি রবিবার কাজ হয়?</summary>
-                <p>হ্যাঁ, আমাদের সেন্টার রবিবার সহ সপ্তাহের প্রতিদিন সকাল ৯:০০ থেকে দুপুর ২:০০ এবং বিকেল ৪:০০ থেকে রাত ১০:০০ পর্যন্ত খোলা থাকে।</p>
-            </details>
-            <details class="faq-item">
-                <summary>৩. আধার কার্ড দিয়ে যেকোনো ব্যাংকের টাকা তোলা যাবে কি?</summary>
-                <p>হ্যাঁ, আপনার ব্যাংক অ্যাকাউন্টের সাথে আধার কার্ড লিঙ্ক থাকলে আপনি এখানে বায়োমেট্রিক (আঙুলের ছাপ) দিয়ে যেকোনো ব্যাংক থেকে নগদ টাকা তুলতে পারবেন এবং ব্যালেন্স চেক করতে পারবেন।</p>
-            </details>
-        </section>
-    </main>
-
-    <!-- 1-Click Document Modal Popup -->
-    <div class="modal-overlay" id="docModal" onclick="if(event.target === this) closeDocModal()">
-        <div class="modal-box">
-            <button class="modal-close" onclick="closeDocModal()" aria-label="Close">✕</button>
-            <h3 id="modalTitle">প্রয়োজনীয় ডকুমেন্টের তালিকা</h3>
-            <ul id="modalList"></ul>
-            <div class="modal-tip" id="modalTip"></div>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                <a id="modalWaBtn" href="https://wa.me/918116326876" target="_blank" rel="noopener noreferrer" class="btn btn-wa" style="flex: 1;">💬 এই কাজের জন্য WhatsApp করুন</a>
-                <button class="btn" style="background: #dfe4ea; color: #2f3542;" onclick="closeDocModal()">বন্ধ করুন (Close)</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Floating Contact Buttons -->
-    <div class="floating-widgets">
-        <a href="https://wa.me/918116326876?text=নমস্কার,%20SAU%20DIGITAL%20SOLUTIONS%20থেকে%20সাহায্য%20চাই।" target="_blank" rel="noopener noreferrer" class="float-btn float-wa">
-            💬 WhatsApp করুন
-        </a>
-        <a href="tel:08116326876" class="float-btn float-call">
-            📞 কল করুন
-        </a>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p><strong>SAU DIGITAL SOLUTIONS</strong> — CSC & Digital Online Services</p>
-        <p>PRATAPDIGHI-BALYAGOBINDAPUR RD, Krishnanagar, Pania, Patashpur II, Purba Medinipur, 721440, West Bengal</p>
-        <p>📞 Phone & WhatsApp: 081163 26876</p>
-        <p style="font-size: 0.8rem; margin-top: 12px; opacity: 0.85;">Disclaimer: We provide assistance with online applications, e-KYC, documentation, and digital services subject to applicable government authorization and citizen eligibility.</p>
-        <p style="margin-top: 8px;">&copy; 2026 SAU DIGITAL SOLUTIONS. All Rights Reserved.</p>
-    </footer>
-
-    <!-- =========================================================================
-         EASY CONFIGURATION & INTERACTIVE SCRIPTS
-         ========================================================================= -->
-    <script>
-        /* -----------------------------------------------------------------------
-           ১. নোটিশ বোর্ড লিস্ট (ভবিষ্যতে নতুন পরীক্ষার বা কাজের নোটিশ দিতে চাইলে এখানে পাল্টাতে পারবেন)
-           ----------------------------------------------------------------------- */
-        const noticeBoardData = [
-            {
-                badge: "🎓 স্কলারশিপ ও পরীক্ষা",
-                title: "সমস্ত সরকারি চাকরির ও পরীক্ষার ফর্ম ফিলাপ চলছে",
-                desc: "SSC, Railway, WBP, KP, PSC, কলেজ অ্যাডমিশন এবং স্বামী বিবেকানন্দ ও ঐক্যশ্রী স্কলারশিপের নতুন ও রিনিউয়াল আবেদন নির্ভুলভাবে করা হচ্ছে।",
-                deadline: "📅 সময়মতো ফর্ম ফিলাপ করতে আজই যোগাযোগ করুন",
-                docKey: "exams"
-            },
-            {
-                badge: "🪪 আধার ও প্যান আপডেট",
-                title: "আধার কার্ড ডকুমেন্ট আপডেট ও নতুন প্যান কার্ড",
-                desc: "১০ বছরের পুরনো আধার কার্ডে ডকুমেন্ট আপডেট, ঠিকানা সংশোধন এবং নতুন প্যান কার্ড ও সংশোধনের কাজ দ্রুত করা হচ্ছে।",
-                deadline: "📅 প্রতিদিন সকাল ৯টা থেকে রাত ১০টা (দুপুর ২-৪টে বিরতি)",
-                docKey: "aadhaar"
-            },
-            {
-                badge: "🌾 সরকারি প্রকল্প ও ই-কেওয়াইসি",
-                title: "রেশন কার্ড ও পিএম কিষাণ (PM-Kisan) e-KYC",
-                desc: "রেশন কার্ডের সাথে আধার লিঙ্ক, নতুন রেশন কার্ড, কৃষক বন্ধু, পিএম কিষাণ এবং পেনশনভোগীদের জীবন প্রমাণ পত্র করা হচ্ছে।",
-                deadline: "📅 আসল ডকুমেন্ট ও মোবাইল সাথে নিয়ে আসুন",
-                docKey: "schemes"
-            }
-        ];
-
-        /* -----------------------------------------------------------------------
-           ২. এক ক্লিকে ডকুমেন্ট দেখার ডেটাবেস (1-Click Document Guide Database)
-           ----------------------------------------------------------------------- */
-        const documentDatabase = {
-            aadhaar: {
-                title: "🪪 আধার কার্ডের কাজের জন্য প্রয়োজনীয় ডকুমেন্ট",
-                items: [
-                    "আপনার আধার কার্ড বা এনরোলমেন্ট স্লিপ এবং লিঙ্ক থাকা মোবাইল নম্বর",
-                    "ঠিকানা (Address) পরিবর্তনের জন্য: ভোটার কার্ড / রেশন কার্ড / পাসপোর্ট / বিবাহের সার্টিফিকেট / পঞ্চায়েত প্রধান বা গ্যাজেটেড অফিসারের স্ট্যান্ডার্ড সার্টিফিকেট",
-                    "১০ বছরের পুরনো আধার ডকুমেন্ট আপডেটের জন্য: ১টি পরিচয়ের প্রমাণ (প্যান কার্ড / ভোটার কার্ড / পাসপোর্ট) এবং ১টি ঠিকানার প্রমাণ (ভোটার কার্ড / রেশন কার্ড)"
-                ],
-                tip: "আসল (Original) ডকুমেন্ট সাথে আনবেন, কারণ স্ক্যান করে আপলোড করতে হয়।"
-            },
-            pan: {
-                title: "💳 প্যান কার্ড (নতুন ও সংশোধন) করতে যা যা লাগবে",
-                items: [
-                    "আধার কার্ড (Aadhaar Card)",
-                    "২ কপি রঙিন পাসপোর্ট সাইজ ছবি",
-                    "চালু মোবাইল নম্বর ও ইমেইল আইডি (যদি থাকে)",
-                    "প্যান কার্ড সংশোধনের ক্ষেত্রে: পুরনো প্যান কার্ডের কপি এবং সঠিক নাম/জন্ম তারিখের প্রমাণ (মাধ্যমিক অ্যাডমিট বা বার্থ সার্টিফিকেট)",
-                    "১৮ বছরের কম বয়সীদের (Minor PAN) ক্ষেত্রে: বাবা অথবা মায়ের আধার কার্ড ও সই"
-                ],
-                tip: "প্যান কার্ডে বাবার নামই বসে (বিবাহিত মহিলাদের ক্ষেত্রেও বাবার নাম প্রযোজ্য)।"
-            },
-            voter: {
-                title: "🗳️ ভোটার কার্ড (নতুন, সংশোধন ও ট্রান্সফার) করতে যা যা লাগবে",
-                items: [
-                    "আধার কার্ড এবং ১ কপি রঙিন পাসপোর্ট সাইজ ছবি",
-                    "জন্ম তারিখের প্রমাণপত্র (জন্ম সার্টিফিকেট / মাধ্যমিক অ্যাডমিট কার্ড / প্যান কার্ড)",
-                    "পরিবারের যেকোনো একজনের (বাবা / মা / স্বামী) ভোটার কার্ডের কপি",
-                    "বিবাহিত মহিলাদের ঠিকানা ট্রান্সফারের ক্ষেত্রে: স্বামীর ভোটার কার্ড এবং ম্যারেজ সার্টিফিকেট বা পঞ্চায়েত প্রধানের সার্টিফিকেট"
-                ],
-                tip: "আসল ডকুমেন্টের ছবি তুলে বা স্ক্যান করে আপলোড করা হয়।"
-            },
-            passport: {
-                title: "🛂 পাসপোর্ট (Passport) আবেদনের জন্য প্রয়োজনীয় ডকুমেন্ট",
-                items: [
-                    "আধার কার্ড এবং প্যান কার্ড / ভোটার কার্ড",
-                    "জন্ম তারিখের প্রমাণপত্র (Birth Certificate বা মাধ্যমিকের অ্যাডমিট কার্ড)",
-                    "শিক্ষাগত যোগ্যতার প্রমাণ (মাধ্যমিক বা উচ্চতর পাশের মার্কশিট ও সার্টিফিকেট - Non-ECR পাসপোর্টের জন্য)",
-                    "ব্যাংক পাসবইয়ের প্রথম পাতা এবং চালু মোবাইল নম্বর",
-                    "রিনিউয়াল (Re-issue) এর ক্ষেত্রে: পুরনো আসল পাসপোর্ট"
-                ],
-                tip: "আধার কার্ড, প্যান কার্ড ও মার্কশিটে আপনার নাম, বাবার নাম ও জন্ম তারিখ যেন একদম এক (Same) থাকে।"
-            },
-            certificates: {
-                title: "🏛️ কাস্ট (SC/ST/OBC), ইনকাম ও ডোমিসাইল সার্টিফিকেটের ডকুমেন্ট",
-                items: [
-                    "আবেদনকারীর আধার কার্ড, ভোটার কার্ড ও রেশন কার্ড",
-                    "পাসপোর্ট সাইজ রঙিন ছবি",
-                    "পঞ্চায়েত প্রধানের ইনকাম ও রেসিডেন্সিয়াল সার্টিফিকেট",
-                    "SC / ST / OBC কাস্ট সার্টিফিকেটের জন্য অতিরিক্ত: বাবার দিকের রক্তের সম্পর্কের কারোর কাস্ট সার্টিফিকেট, বংশতালিকা, বাবার ভোটার/আধার/রেশন কার্ড এবং জমির দলিল বা পরচা"
-                ],
-                tip: "কাস্ট সার্টিফিকেটের ক্ষেত্রে স্থানীয় ৫ জন প্রতিবেশীর নাম ও ভোটার/আধার তথ্য লাগতে পারে।"
-            },
-            schemes: {
-                title: "🌾 রেশন কার্ড, লক্ষ্মীর ভাণ্ডার ও সরকারি প্রকল্পের ডকুমেন্ট",
-                items: [
-                    "আধার কার্ড, ভোটার কার্ড ও রেশন কার্ড",
-                    "ব্যাংক পাসবইয়ের প্রথম পাতার কপি (একক অ্যাকাউন্ট যার সাথে আধার লিঙ্ক আছে)",
-                    "নতুন রেশন কার্ড বা নাম তোলার ক্ষেত্রে: পরিবারের সবার রেশন কার্ড এবং নতুন সদস্যের আধার কার্ড বা জন্ম সার্টিফিকেট (৫ বছরের কম হলে)",
-                    "কৃষক বন্ধু ও পিএম কিষাণের ক্ষেত্রে: সাম্প্রতিক জমির পরচা (ROR), আধার কার্ড, ভোটার কার্ড ও ব্যাংক পাসবই"
-                ],
-                tip: "ওটিপি (OTP) ভেরিফিকেশনের জন্য আধারের সাথে যুক্ত মোবাইলটি সাথে আনুন।"
-            },
-            exams: {
-                title: "🎓 চাকরির পরীক্ষা ও স্কলারশিপ ফর্ম ফিলাপের ডকুমেন্ট",
-                items: [
-                    "আধার কার্ড, ১ কপি পাসপোর্ট সাইজ রঙিন ছবি ও সাদা কাগজে কালো কালিতে সই (Signature)",
-                    "মাধ্যমিকের অ্যাডমিট কার্ড এবং মাধ্যমিক, উচ্চমাধ্যমিক ও গ্র্যাজুয়েশনের মার্কশিট ও সার্টিফিকেট",
-                    "কাস্ট সার্টিফিকেট (SC/ST/OBC/EWS - যদি প্রযোজ্য হয়)",
-                    "স্কলারশিপের (SVMCM / Oasis / Aikyashree) জন্য অতিরিক্ত: বর্তমান স্কুল/কলেজে ভর্তির রশিদ (Admission Receipt), ব্যাংক পাসবই এবং অনলাইন ইনকাম সার্টিফিকেট",
-                    "নিজস্ব চালু মোবাইল নম্বর ও ইমেইল আইডি"
-                ],
-                tip: "ফর্ম ফিলাপের সময় অনেক পরীক্ষায় লাইভ ছবি (Live Photo) তোলা হয়, তাই প্রার্থীকে নিজে উপস্থিত থাকতে হতে পারে।"
-            },
-            banking: {
-                title: "🏦 ব্যাংকিং, টাকা তোলা ও মানি ট্রান্সফারের ডকুমেন্ট",
-                items: [
-                    "আধার দিয়ে টাকা তোলার জন্য (AEPS): আপনার আধার নম্বর এবং ব্যাংকের নাম (গ্রাহককে নিজে উপস্থিত থেকে আঙুলের ছাপ দিতে হবে)",
-                    "টাকা পাঠানোর জন্য (Money Transfer): প্রাপকের ব্যাংক অ্যাকাউন্ট নম্বর, IFSC কোড এবং প্রাপকের নাম",
-                    "পিএফ (PF) কাজের জন্য: UAN নম্বর, আধার কার্ড, প্যান কার্ড এবং ব্যাংক পাসবই (বা চেক বই)"
-                ],
-                tip: "গাড়ি বা বাইক ইন্স্যুরেন্সের জন্য গাড়ির ব্লু-বুক (RC) এবং পুরনো ইন্স্যুরেন্স কপি সাথে আনুন।"
-            },
-            bills: {
-                title: "💡 ইলেকট্রিক বিল ও নতুন মিটার আবেদনের ডকুমেন্ট",
-                items: [
-                    "ইলেকট্রিক বিল পেমেন্টের জন্য: কনজিউমার আইডি (Consumer ID) বা পুরনো বিলের কপি",
-                    "নতুন ইলেকট্রিক মিটার কানেকশনের জন্য: আধার কার্ড, ভোটার কার্ড, পাসপোর্ট ছবি, জমির পরচা বা দলিল এবং পঞ্চায়েত প্রধানের NOC/শংসাপত্র"
-                ],
-                tip: "বিল পেমেন্টের সাথে সাথেই পাকা রশিদ (Computer Receipt) প্রিন্ট করে দেওয়া হয়।"
-            },
-            land: {
-                title: "🗺️ জমির পরচা (ROR), খাজনা ও মিউটেশনের ডকুমেন্ট",
-                items: [
-                    "মৌজার নাম, জেল নম্বর (JL No), খতিয়ান নম্বর অথবা দাগ নম্বর",
-                    "জমির মালিকের আধার কার্ড ও চালু মোবাইল নম্বর",
-                    "খাজনা ও মিউটেশনের জন্য: জমির রেজিস্ট্রি দলিল (Deed), পুরনো পরচা ও ওয়ারিশ সার্টিফিকেট (প্রযোজ্য ক্ষেত্রে)"
-                ],
-                tip: "ডিজিটাল সই করা আসল সরকারি পরচা (Certified ROR) সাথে সাথেই প্রিন্ট করে দেওয়া হয়।"
-            },
-            driving: {
-                title: "🚗 ড্রাইভিং লাইসেন্স ও গাড়ির কাজের ডকুমেন্ট",
-                items: [
-                    "আধার কার্ড ও ভোটার কার্ড / প্যান কার্ড",
-                    "জন্ম তারিখের প্রমাণ ও রক্তের গ্রুপ (Blood Group) রিপোর্ট",
-                    "পাসপোর্ট সাইজ ছবি ও সই",
-                    "রিনিউয়াল বা গাড়ির ট্যাক্স/ইন্স্যুরেন্সের জন্য: পুরনো ড্রাইভিং লাইসেন্স বা গাড়ির আরসি (RC / Smart Card) এবং পলিউশন সার্টিফিকেট"
-                ],
-                tip: "আধারের সাথে যুক্ত মোবাইল নম্বরটি ওটিপি (OTP) দেওয়ার জন্য সাথে রাখবেন।"
-            }
-        };
-
-        // Render Notice Board Cards
-        function renderNotices() {
-            const container = document.getElementById('noticeContainer');
-            container.innerHTML = noticeBoardData.map(n => `
-                <div class="notice-card">
-                    <div>
-                        <span class="notice-badge">${n.badge}</span>
-                        <h4>${n.title}</h4>
-                        <p>${n.desc}</p>
-                        <div class="notice-date">${n.deadline}</div>
-                    </div>
-                    <div class="notice-actions">
-                        <button class="btn-sm btn-doc-modal" onclick="openDocModal('${n.docKey}')">📋 কি কি ডকুমেন্ট লাগবে</button>
-                        <a href="https://wa.me/918116326876?text=${encodeURIComponent('নমস্কার, আমি "' + n.title + '" বিষয়ে জানতে চাই।')}" target="_blank" rel="noopener noreferrer" class="btn-sm btn-wa-sm">💬 আবেদন করুন</a>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // Open 1-Click Document Modal
-        function openDocModal(key) {
-            const data = documentDatabase[key];
-            if (!data) return;
-            document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('modalList').innerHTML = data.items.map(item => `<li>${item}</li>`).join('');
-            document.getElementById('modalTip').innerHTML = `<strong>💡 বিশেষ নোট:</strong> ${data.tip}`;
-            document.getElementById('modalWaBtn').href = `https://wa.me/918116326876?text=${encodeURIComponent('নমস্কার, আমি "' + data.title + '" সম্পর্কে জানতে চাই।')}`;
-            document.getElementById('docModal').classList.add('active');
-        }
-
-        function closeDocModal() {
-            document.getElementById('docModal').classList.remove('active');
-        }
-
-        // Category Filter & Search
-        let currentCategory = 'all';
-        function filterServices(cat, btnElement) {
-            currentCategory = cat;
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            if (btnElement) btnElement.classList.add('active');
-            applySearchAndFilter();
-        }
-
-        document.getElementById('serviceSearch').addEventListener('input', applySearchAndFilter);
-
-        function applySearchAndFilter() {
-            const query = document.getElementById('serviceSearch').value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.service-item');
-            cards.forEach(card => {
-                const matchCat = (currentCategory === 'all') || (card.getAttribute('data-category') === currentCategory);
-                const matchText = card.innerText.toLowerCase().includes(query);
-                card.style.display = (matchCat && matchText) ? 'flex' : 'none';
-            });
-        }
-
-        // Direct WhatsApp Inquiry Form Handler
-        function sendToWhatsApp(e) {
-            e.preventDefault();
-            const name = document.getElementById('custName').value.trim();
-            const service = document.getElementById('custService').value;
-            const msg = document.getElementById('custMsg').value.trim();
-            const fullText = `নমস্কার SAU DIGITAL SOLUTIONS,\nআমার নাম: ${name}\nকাজের বিষয়: ${service}\nবিবরণ: ${msg || 'এই কাজের জন্য কি কি ডকুমেন্ট লাগবে জানাবেন।'}`;
-            window.open(`https://wa.me/918116326876?text=${encodeURIComponent(fullText)}`, '_blank');
-        }
-
-        // Live Shop Open/Closed Indicator (9:00-14:00 & 16:00-22:00 IST)
-        function updateShopStatus() {
-            const badge = document.getElementById('liveShopStatus');
-            const now = new Date();
-            const hours = now.getHours() + (now.getMinutes() / 60);
-            const isOpen = (hours >= 9 && hours < 14) || (hours >= 16 && hours < 22);
-
-            if (isOpen) {
-                badge.className = 'status-badge';
-                badge.innerText = '🟢 এখন দোকান খোলা আছে (OPEN NOW)';
-            } else if (hours >= 14 && hours < 16) {
-                badge.className = 'status-badge closed';
-                badge.innerText = '🟠 দুপুরের বিরতি (বিকেল ৪টেয় খুলবে)';
-            } else {
-                badge.className = 'status-badge closed';
-                badge.innerText = '🔴 এখন বন্ধ (সকাল ৯টায় খুলবে)';
-            }
-        }
-
-        renderNotices();
-        updateShopStatus();
-        setInterval(updateShopStatus, 60000);
-    </script>
-</body>
-</html>
+            <div class="portal-card" style="border-top-color: #6c757d;">
+                <h3>👴 মৃত্যু শংসাপত্র (Death Certificate)</h3>
+                <p>অনলাইনে ডেথ সার্টিফিকেটের আবেদন এবং ডিজিটাল কপি ডাউনলোড।</p>
