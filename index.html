@@ -1,317 +1,829 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAU DIGITAL SOLUTIONS - Official E-Governance Portal</title>
-    <style>
-        :root {
-            --bg-base: #f1f5f9;
-            --panel-dark: #0f172a;
-            --panel-nav: #1e293b;
-            --accent-gold: #f59e0b;
-            --accent-blue: #2563eb;
-            --accent-green: #10b981;
-            --text-primary: #334155;
-            --text-light: #ffffff;
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Local Business Meta Tags -->
+  <title>SAU DIGITAL SOLUTIONS | CSC & Digital Online Services | Patashpur</title>
+  <meta name="description" content="SAU DIGITAL SOLUTIONS - পটাশপুর, পূর্ব মেদিনীপুরের বিশ্বস্ত CSC সেন্টার। আধার, প্যান, ভোটার, পাসপোর্ট, ব্যাংকিং ও সরকারি অনলাইন পরিষেবা।">
+  <meta name="keywords" content="SAU DIGITAL SOLUTIONS, CSC Centre Patashpur, Online Form Fillup, Aadhaar Update, PAN Card, Purba Medinipur Cyber Cafe">
+  <meta property="og:title" content="SAU DIGITAL SOLUTIONS | CSC & Digital Online Services">
+  <meta property="og:description" content="সহজ, দ্রুত এবং নির্ভরযোগ্য সরকারি ও ডিজিটাল পরিষেবা পান আপনার এলাকার বিশ্বস্ত সেন্টারে।">
+  <meta property="og:image" content="https://goutamsau440-oss.github.io/sau-digital-solutions/logo.png">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-        }
+  <style>
+    :root {
+      --royal-blue: #004aad;
+      --deep-navy: #003b8e;
+      --emerald-teal: #00b894;
+      --whatsapp-green: #25D366;
+      --call-blue: #007bff;
+      --warm-orange: #ff9800;
+      --light-slate: #eef5ff;
+      --off-white: #f8fafc;
+      --text-dark: #1e293b;
+      --text-muted: #475569;
+      --white: #ffffff;
+      --border-color: #e2e8f0;
+    }
 
-        body {
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        .alert-ticker {
-            background-color: var(--accent-gold);
-            color: var(--panel-dark);
-            font-size: 0.95rem;
-            font-weight: 700;
-            padding: 10px 20px;
-            overflow: hidden;
-            white-space: nowrap;
-        }
+    body {
+      background-color: var(--off-white);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
 
-        .corporate-header {
-            background: linear-gradient(135deg, var(--panel-dark), var(--panel-nav));
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 5px solid var(--accent-gold);
-        }
+    /* Header */
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-        .corporate-header h1 {
-            color: var(--text-light);
-            font-size: 2.8rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
 
-        .corporate-header p {
-            color: var(--accent-gold);
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-top: 6px;
-        }
-        
-        .corporate-header .meta-tag {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            margin-top: 6px;
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
 
-        .main-wrapper {
-            max-width: 1240px;
-            margin: 30px auto;
-            padding: 0 20px;
-            flex: 1;
-        }
+    .brand img {
+      height: 50px;
+      width: auto;
+      border-radius: 8px;
+    }
 
-        .telemetry-panel {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 20px 30px;
-            box-shadow: var(--card-shadow);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            border-top: 4px solid var(--accent-green);
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
+    .brand-text h1 {
+      font-size: 1.3rem;
+      color: var(--royal-blue);
+      font-weight: 700;
+    }
 
-        .cluster-header {
-            font-size: 1.5rem;
-            color: var(--panel-dark);
-            font-weight: 800;
-            margin: 35px 0 20px 0;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #cbd5e1;
-            padding-bottom: 8px;
-        }
+    .brand-text p {
+      font-size: 0.85rem;
+      color: var(--emerald-teal);
+      font-weight: 700;
+    }
 
-        .cluster-id {
-            background: var(--accent-blue);
-            color: white;
-            width: 32px;
-            height: 32px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            margin-right: 12px;
-            font-size: 0.95rem;
-        }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
 
-        .cluster-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
-        }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
 
-        .portal-node-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 22px;
-            box-shadow: var(--card-shadow);
-            border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+    .nav-links a:hover {
+      color: var(--royal-blue);
+    }
 
-        .portal-node-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-        }
+    .header-cta {
+      background-color: var(--royal-blue);
+      color: var(--white) !important;
+      padding: 8px 16px;
+      border-radius: 6px;
+    }
 
-        .node-content h3 {
-            font-size: 1.15rem;
-            color: #0f172a;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--deep-navy) 0%, var(--royal-blue) 60%, var(--emerald-teal) 100%);
+      color: var(--white);
+      padding: 60px 20px 50px;
+      text-align: center;
+    }
 
-        .node-content p {
-            font-size: 0.9rem;
-            color: #64748b;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
+    .hero-content {
+      max-width: 850px;
+      margin: 0 auto;
+    }
 
-        .node-actions {
-            display: flex;
-            gap: 8px;
-            margin-top: auto;
-        }
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.18);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
 
-        .node-link-btn {
-            flex: 2;
-            text-align: center;
-            background-color: var(--panel-dark);
-            color: #ffffff;
-            padding: 10px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: background-color 0.2s;
-        }
+    .hero h2 {
+      font-size: 2.1rem;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
 
-        .node-link-btn:hover {
-            background-color: var(--accent-blue);
-        }
+    .hero p {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      margin-bottom: 25px;
+    }
 
-        .one-click-copy-btn {
-            flex: 1;
-            background-color: #ffffff;
-            color: #475569;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.2s;
-        }
+    .search-wrapper {
+      max-width: 550px;
+      margin: 0 auto 25px;
+    }
 
-        .one-click-copy-btn:hover {
-            background-color: #fef3c7;
-            color: #d97706;
-            border-color: #fcd34d;
-        }
+    .search-wrapper input {
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 50px;
+      border: none;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      outline: none;
+    }
 
-        .infrastructure-desk {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            padding: 30px;
-            margin-top: 50px;
-            border-left: 6px solid var(--accent-blue);
-            border-top: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
-            border-right: 1px solid #e2e8f0;
-        }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-        .desk-header {
-            font-size: 1.4rem;
-            color: var(--panel-dark);
-            margin-bottom: 12px;
-            font-weight: 800;
-        }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: transform 0.2s;
+    }
 
-        .comms-node-group {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
 
-        .comms-action-trigger {
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-        }
+    .btn-whatsapp {
+      background-color: var(--whatsapp-green);
+      color: var(--white);
+    }
 
-        .comms-voice { background: var(--accent-blue); color: white; }
-        .comms-chat { background: #16a34a; color: white; }
-        .comms-action-trigger:hover { transform: translateY(-2px); opacity: 0.95; }
+    .btn-call {
+      background-color: var(--warm-orange);
+      color: var(--white);
+    }
 
-        .toast-notification {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #10b981;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-weight: 700;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            display: none;
-            z-index: 1000;
-        }
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
 
-        footer {
-            background-color: var(--panel-dark);
-            color: #64748b;
-            text-align: center;
-            padding: 25px;
-            margin-top: 60px;
-            border-top: 4px solid var(--accent-gold);
-            font-size: 0.9rem;
-        }
-        footer strong { color: #fff; }
-    </style>
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h3 {
+      font-size: 1.75rem;
+      color: var(--deep-navy);
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0, 74, 173, 0.05);
+      border-top: 4px solid var(--royal-blue);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: inline-block;
+      background: var(--light-slate);
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .service-card h4 {
+      font-size: 1.2rem;
+      color: var(--deep-navy);
+      margin-bottom: 10px;
+    }
+
+    .service-card ul {
+      list-style: none;
+      margin-bottom: 15px;
+    }
+
+    .service-card ul li {
+      padding: 4px 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .service-card ul li::before {
+      content: "✔";
+      color: var(--emerald-teal);
+      font-weight: bold;
+    }
+
+    /* Required Docs Highlight */
+    .docs-hint {
+      background: var(--light-slate);
+      border-left: 3px solid var(--royal-blue);
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+    }
+
+    .card-link {
+      display: inline-block;
+      color: var(--royal-blue);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    /* Trust Section */
+    .trust-section {
+      background-color: var(--light-slate);
+      padding: 45px 20px;
+    }
+
+    .trust-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .trust-box {
+      background: var(--white);
+      padding: 22px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    .trust-box h4 {
+      color: var(--royal-blue);
+      margin: 8px 0 5px;
+      font-size: 1.1rem;
+    }
+
+    .trust-box p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Testimonials Section */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .review-card {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .review-stars {
+      color: var(--warm-orange);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .review-text {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .review-author {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--deep-navy);
+    }
+
+    /* FAQ Section */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+
+    .faq-item h5 {
+      font-size: 1.05rem;
+      color: var(--royal-blue);
+      margin-bottom: 6px;
+    }
+
+    .faq-item p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Info & Form Section */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .info-card {
+      background: var(--white);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .info-card h4 {
+      font-size: 1.3rem;
+      color: var(--deep-navy);
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--light-slate);
+      padding-bottom: 8px;
+    }
+
+    .info-item {
+      margin-bottom: 14px;
+    }
+
+    .info-item strong {
+      display: block;
+      color: var(--royal-blue);
+      margin-bottom: 2px;
+      font-size: 0.95rem;
+    }
+
+    .hours-badge {
+      display: inline-block;
+      background: var(--light-slate);
+      color: var(--deep-navy);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-top: 4px;
+      border-left: 3px solid var(--emerald-teal);
+    }
+
+    .inquiry-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .inquiry-form input, .inquiry-form select, .inquiry-form textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .inquiry-form button {
+      background: var(--royal-blue);
+      color: var(--white);
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .inquiry-form button:hover {
+      background: var(--deep-navy);
+    }
+
+    .map-container {
+      border-radius: 12px;
+      overflow: hidden;
+      min-height: 280px;
+      border: 1px solid var(--border-color);
+      margin-top: 20px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      border: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--deep-navy);
+      color: var(--white);
+      text-align: center;
+      padding: 25px 20px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      font-size: 0.88rem;
+      opacity: 0.85;
+      margin-bottom: 5px;
+    }
+
+    /* Floating Buttons */
+    .floating-widgets {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 2000;
+    }
+
+    .float-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 16px;
+      border-radius: 50px;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .float-whatsapp { background-color: var(--whatsapp-green); }
+    .float-call { background-color: var(--call-blue); }
+
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 1.6rem; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="alert-ticker">
-        <marquee behavior="scroll" direction="left" scrollamount="5">
-            ⚠️ নোটিশ: আমাদের পোর্টালে সমস্ত ডিজিটাল ও ব্যাংকিং সার্ভার সম্পূর্ণ অনলাইন ও সচল রয়েছে। যেকোনো অনলাইন কাজের জন্য নিচে সরাসরি অ্যাক্সেস করুন।
-        </marquee>
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <img src="https://goutamsau440-oss.github.io/sau-digital-solutions/logo.png" alt="SAU DIGITAL SOLUTIONS">
+        <div class="brand-text">
+          <h1>SAU DIGITAL SOLUTIONS</h1>
+          <p>CSC & Digital Online Services</p>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#services">পরিষেবা</a>
+        <a href="#faq">প্রশ্নোত্তর</a>
+        <a href="#contact">যোগাযোগ</a>
+        <a href="tel:08116326876" class="header-cta">📞 081163 26876</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">✨ Trusted CSC & Digital Centre</span>
+      <h2>সহজ, দ্রুত ও নির্ভুল ডিজিটাল ও সরকারি অনলাইন পরিষেবা</h2>
+      <p>আধার, প্যান, ভোটার, পাসপোর্ট, স্কলারশিপ ও ব্যাংকিং কাজের জন্য আপনার এলাকার সেরা প্রতিষ্ঠান।</p>
+      
+      <div class="search-wrapper">
+        <input type="text" id="serviceSearch" placeholder="🔍 কোন কাজটি করতে চান? (যেমন: PAN, Aadhaar, Passport, Bill)..." onkeyup="filterServices()">
+      </div>
+
+      <div class="hero-buttons">
+        <a href="https://wa.me/918116326876" target="_blank" class="btn btn-whatsapp">💬 WhatsApp-এ কথা বলুন</a>
+        <a href="tel:08116326876" class="btn btn-call">📞 সরাসরি কল করুন</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="container" id="services">
+    <div class="section-title">
+      <h3>আমাদের প্রধান সেবাসমূহ</h3>
+      <p>সরকারি ও অনলাইন কাজের নির্ভরযোগ্য সমাধান পান একই ছাদের নিচে</p>
     </div>
 
-    <header class="corporate-header">
-        <h1>SAU DIGITAL SOLUTIONS</h1>
-        <p>Institutional E-Governance & Core Banking Center</p>
-        <div class="meta-tag">Authorized Digital Service Point • Krishnanagar, Pania, Patashpur II</div>
-    </header>
+    <div class="services-grid" id="servicesGrid">
+      <!-- Card 1 -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon">🪪</div>
+          <h4>পরিচয়পত্র ও নাগরিক নথি</h4>
+          <ul>
+            <li>আধার সংক্রান্ত যাবতীয় সহায়তা (Aadhaar Assistance)</li>
+            <li>নতুন প্যান কার্ড আবেদন ও কারেকশন (PAN Card)</li>
+            <li>ভোটার কার্ড সংশোধন ও নতুন কার্ড (Voter Card)</li>
+            <li>পাসপোর্ট আবেদন (Passport Applications)</li>
+            <li>ই-কেওয়াইসি ও ডিজিটাল লাইফ সার্টিফিকেট</li>
+          </ul>
+          <div class="docs-hint">
+            <strong>প্রয়োজনীয় নথি:</strong> মোবাইল লিংক থাকা জরুরি, পুরোনো ডকুমেন্টের জেরক্স ও পাসপোর্ট সাইজ ফটো।
+          </div>
+        </div>
+        <a href="https://wa.me/918116326876?text=নমস্কার,%20পরিচয়পত্র%20সংক্রান্ত%20কাজের%20জন্য%20জানতে%20চাই।" target="_blank" class="card-link">WhatsApp-এ হেল্প চান →</a>
+      </div>
 
-    <div class="main-wrapper">
-        <div class="telemetry-panel">
-            <div>🕒 <strong>সময়:</strong> 07:30 AM - 10:00 PM</div>
-            <div>📍 <strong>স্থান:</strong> কৃষ্ণনগর, পানিয়া, পটাশপুর II, পূর্ব মেদিনীপুর</div>
+      <!-- Card 2 -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon">📝</div>
+          <h4>সরকারি প্রকল্প ও ফর্ম ফিলাপ</h4>
+          <ul>
+            <li>চাকরি ও প্রতিযোগিতামূলক পরীক্ষার ফর্ম ফিলাপ</li>
+            <li>স্কলারশিপ আবেদন (ওক্যাশ্রি, স্বামী বিবেকানন্দ ইত্যাদি)</li>
+            <li>স্বাস্থ্য সাথী ও কৃষক বন্ধু সংক্রান্ত সহায়তা</li>
+            <li>রেশন কার্ড লিঙ্ক ও স্ট্যাটাস চেক</li>
+          </ul>
+          <div class="docs-hint">
+            <strong>প্রয়োজনীয় নথি:</strong> মার্কশিট, কাস্ট সার্টিফিকেট, ব্যাংক পাসবুক ও এক কপি ছবি।
+          </div>
+        </div>
+        <a href="https://wa.me/918116326876?text=নমস্কার,%20ফর্ম%20ফিলাপ%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="card-link">WhatsApp-এ হেল্প চান →</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon">🏦</div>
+          <h4>মাইক্রো ব্যাংকিং ও আর্থিক সেবা</h4>
+          <ul>
+            <li>তাৎক্ষণিক মানি ট্রান্সফার (Money Transfer)</li>
+            <li>আধার এনাবেল্ড পেমেন্ট (AePS) ক্যাশ তোলা</li>
+            <li>ব্যাংক ব্যালেন্স চেক ও মিনি স্টেটমেন্ট</li>
+            <li>বাইক/গাড়ির ইন্স্যুরেন্স ও লাইফ ইন্স্যুরেন্স</li>
+          </ul>
+          <div class="docs-hint">
+            <strong>প্রয়োজনীয় নথি:</strong> ব্যাংক অ্যাকাউন্ট নম্বর/আইএফএসসি কোড ও আধার কার্ড।
+          </div>
+        </div>
+        <a href="https://wa.me/918116326876?text=নমস্কার,%20ব্যাংকিং%20পরিষেবা%20সম্পর্কে%20জানতে%20চাই।" target="_blank" class="card-link">WhatsApp-এ হেল্প চান →</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon">⚡</div>
+          <h4>বিল পেমেন্ট ও রিচার্জ</h4>
+          <ul>
+            <li>WBSEDCL ইলেকট্রিসিটি বিল পেমেন্ট</li>
+            <li>সকল প্রিপেইড/পোস্টপেইড মোবাইল রিচার্জ</li>
+            <li>সকল কোম্পানির DTH রিচার্জ</li>
+            <li>তাৎক্ষণিক মানি রিসিট প্রদান</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/918116326876?text=নমস্কার,%20বিল%20পেমেন্ট%20করতে%20চাই।" target="_blank" class="card-link">WhatsApp-এ হেল্প চান →</a>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="service-card">
+        <div>
+          <div class="service-icon">🖨️</div>
+          <h4>প্রিন্টিং, জেরক্স ও ল্যামিনেশন</h4>
+          <ul>
+            <li>উচ্চমানের রঙিন ও সাদাকালো প্রিন্ট</li>
+            <li>ডকুমেন্ট স্ক্যান ও ইমেইল সার্ভিস</li>
+            <li>হাই-কোয়ালিটি ল্যামিনেশন</li>
+            <li>অনলাইন পাসপোর্ট ফটো প্রিন্ট</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/918116326876?text=নমস্কার,%20প্রিন্টিং%20কাজের%20জন্য%20জানতে%20চাই।" target="_blank" class="card-link">WhatsApp-এ হেল্প চান →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="trust-section" id="why-us">
+    <div class="trust-grid">
+      <div class="trust-box">
+        <h4>🤝 আন্তরিক ব্যবহার</h4>
+        <p>প্রতিটি গ্রাহককে মনোযোগ সহকারে পরামর্শ দেওয়া হয় যাতে কোনো তথ্য ভুল না হয়।</p>
+      </div>
+      <div class="trust-box">
+        <h4>⚡ দ্রুত কাজ</h4>
+        <p>লম্বা লাইনে দাঁড়ানোর ঝামেলা ছাড়া সহজে কাজ শেষ করার নিশ্চয়তা।</p>
+      </div>
+      <div class="trust-box">
+        <h4>🔒 ১০০% গোপনীয়তা</h4>
+        <p>আপনার সমস্ত ব্যক্তিগত নথি ও আর্থিক তথ্য সর্বোচ্চ সুরক্ষায় রাখা হয়।</p>
+      </div>
+      <div class="trust-box">
+        <h4>📍 নিজস্ব এলাকায় সেবা</h4>
+        <p>পানিয়া ও কৃষ্ণনগর এলাকার মানুষের হাতের নাগালে আধুনিক ডিজিটাল সেন্টার।</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews -->
+  <section class="container">
+    <div class="section-title">
+      <h3>গ্রাহকদের মতামত</h3>
+      <p>আমাদের সেবার মান সম্পর্কে গ্রাহকরা কী বলছেন</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"প্যান কার্ডের সংশোধন খুব দ্রুত এবং নিখুঁতভাবে করে দিয়েছেন। ব্যবহার খুবই ভালো।"</p>
+        <span class="review-author">— স্থানীয় গ্রাহক</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"চাকরির ফর্ম ফিলাপের জন্য সবসময় এখানে আসি। কোনো ভুল ছাড়াই নির্ভুল আবেদন হয়।"</p>
+        <span class="review-author">— সৌমেন পাত্র</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"টাকা তোলা এবং ইলেকট্রিক বিল দেওয়ার সুবিধাটা আমাদের গ্রামের জন্য খুবই উপকারে এসেছে।"</p>
+        <span class="review-author">— সুজিত মাইতি</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="container" id="faq" style="padding-top: 0;">
+    <div class="section-title">
+      <h3>সাধারণ কিছু প্রশ্নোত্তর (FAQ)</h3>
+      <p>আপনার মনে থাকা কিছু কমন প্রশ্নের উত্তর</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h5>সেন্টারটি কখন খোলা থাকে?</h5>
+        <p>সপ্তাহে ৭ দিনই সকাল ০৯:০০ থেকে দুপুর ০২:০০ এবং বিকেল ০৪:০০ থেকে রাত ১০:০০ পর্যন্ত সেন্টার খোলা থাকে।</p>
+      </div>
+      <div class="faq-item">
+        <h5>এখানে কি অনলাইন পেমেন্ট (UPI/PhonePe/GPay) নেওয়া হয়?</h5>
+        <p>হ্যাঁ, আপনি ক্যাশ ছাড়াও যেকোনো UPI বা অনলাইন পেমেন্ট পদ্ধতির মাধ্যমে ফি মেটাতে পারেন।</p>
+      </div>
+      <div class="faq-item">
+        <h5>ফর্ম ফিলাপের জন্য কি অরিজিনাল ডকুমেন্ট আনতে হবে?</h5>
+        <p>সাধারণত অরিজিনাল ডকুমেন্ট বা পরিষ্কার জেরক্স কপি ও লিঙ্ক থাকা সচল মোবাইল সাথে রাখা জরুরি।</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Location -->
+  <section class="container" id="contact">
+    <div class="section-title">
+      <h3>যোগাযোগ ও অবস্থান</h3>
+      <p>সরাসরি সেন্টারে চলে আসুন অথবা মেসেজ পাঠান</p>
+    </div>
+
+    <div class="contact-layout">
+      <!-- Address Details -->
+      <div class="info-card">
+        <h4>সেন্টারের বিবরণ</h4>
+        
+        <div class="info-item">
+          <strong>📍 ঠিকানা:</strong>
+          <p>PRATAPDIGHI-BALYAGOBINDAPUR RD, Krishnanagar, Pania, patashpur ll, Purba Medinipur, 721440, West Bengal, IN</p>
         </div>
 
-        <!-- CLUSTER 1 -->
-        <h2 class="cluster-header"><div class="cluster-id">01</div> সরকারি মুখ্য পরিচয়পত্র ও কার্ড</h2>
-        <div class="cluster-grid">
-            <div class="portal-node-card">
-                <div class="node-content">
-                    <h3>🆔 আধার কার্ড (Aadhaar)</h3>
-                    <p>নতুন আধার কার্ড, বায়োমেট্রিক ও ডেমোগ্রাফিক সংশোধন এবং ডাউনলোড টার্মিনাল।</p>
-                </div>
-                <div class="node-actions">
-                    <a href="aadhar.html" class="node-link-btn">ওপেন করুন</a>
-                    <button class="one-click-copy-btn" onclick="copyLink('aadhar.html')">📋 কপি লিংক</button>
-                </div>
-            </div>
-            <div class="portal-node-card">
-                <div class="node-content">
-                    <h3>💳 প্যান কার্ড (PAN)</h3>
-                    <p>নতুন প্যান কার্ড আবেদন এবং মাত্র কয়েক মিনিটে ইনস্ট্যান্ট প্যান ডাউনলোডের সুবিধা।</p>
-                </div>
-                <div class="node-actions">
-                    <a href="pan.html" class="node-link-btn">ওপেন করুন</a>
-                    <button class="one-click-copy-btn" onclick="copyLink('pan.html')">📋 কপি লিংক</button>
-                </div>
-            </div>
-            <div class="portal-node-card">
-                <div class="node-content">
-                    <h3>🗳️ ভোটার কার্ড (Voter ID)</h3>
-                    <p>নতুন ভোটার কার্ডের নাম নথিভুক্তকরণ, সংশোধন এবং ডিজিটাল ভোটার প্রিন্ট।</p>
-                </div>
-                <div class="node-actions">
-                    <a href="voter.html" class="node-link-btn">ওপেন করুন</a>
-                    <button class="one-click-copy-btn" onclick="copyLink('voter.html')">📋 কপি লিংক</button>
-                </div>
-            </div>
-            <div class="portal-node-card">
-                <div class="node-content">
-                    <h3>🌾 রেশন কার্ড (Ration)</h3>
+        <div class="info-item">
+          <strong>📞 হেল্পলাইন নম্বর:</strong>
+          <p><a href="tel:08116326876" style="color: var(--royal-blue); font-weight: bold; text-decoration: none;">081163 26876</a></p>
+        </div>
+
+        <div class="info-item">
+          <strong>⏰ সময়সূচি:</strong>
+          <div class="hours-badge">সকাল ০৯:০০ - দুপুর ০২:০০</div>
+          <div class="hours-badge">বিকেল ০৪:০০ - রাত ১০:০০</div>
+        </div>
+
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps?q=PRATAPDIGHI-BALYAGOBINDAPUR+RD,+Krishnanagar,+Pania,+patashpur+ll,+Purba+Medinipur,+721440,+West+Bengal,+IN&output=embed" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Quick Inquiry via WhatsApp -->
+      <div class="info-card">
+        <h4>সরাসরি বার্তা পাঠান</h4>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">ফর্মটি পূরণ করে সাবমিট করলেই মেসেজটি সরাসরি আমাদের WhatsApp-এ চলে আসবে।</p>
+        
+        <form class="inquiry-form" onsubmit="sendToWhatsApp(event)">
+          <input type="text" id="custName" placeholder="আপনার নাম" required>
+          <input type="tel" id="custPhone" placeholder="মোবাইল নম্বর" required>
+          <select id="custService" required>
+            <option value="">পরিষেবা নির্বাচন করুন</option>
+            <option value="Aadhaar/PAN/Voter">পরিচয়পত্র সংক্রান্ত সেবা</option>
+            <option value="Online Form Fillup">সরকারি ফর্ম ফিলাপ / স্কলারশিপ</option>
+            <option value="Banking/Money Transfer">ব্যাংকিং ও মানি ট্রান্সফার</option>
+            <option value="Bill/Recharge">বিল পেমেন্ট ও রিচার্জ</option>
+            <option value="Printing/Other">প্রিন্টিং বা অন্যান্য</option>
+          </select>
+          <textarea id="custMessage" rows="4" placeholder="আপনার প্রশ্ন বা প্রয়োজনীয় তথ্য লিখুন..."></textarea>
+          <button type="submit">WhatsApp-এ বার্তা পাঠান 💬</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>SAU DIGITAL SOLUTIONS</strong> — CSC & Digital Online Services</p>
+    <p>Professional Digital Service Centre. Friendly behaviour and genuine work.</p>
+    <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">*All services are provided subject to applicable authorization and eligibility.</p>
+  </footer>
+
+  <!-- Floating Contact Buttons -->
+  <div class="floating-widgets">
+    <a href="https://wa.me/918116326876" target="_blank" class="float-btn float-whatsapp">💬 WhatsApp</a>
+    <a href="tel:08116326876" class="float-btn float-call">📞 Call Now</a>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Live Search Logic
+    function filterServices() {
+      const input = document.getElementById('serviceSearch').value.toLowerCase();
+      const cards = document.querySelectorAll('.service-card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? '' : 'none';
+      });
+    }
+
+    // Direct Form to WhatsApp Logic
+    function sendToWhatsApp(e) {
+      e.preventDefault();
+      const name = document.getElementById('custName').value;
+      const phone = document.getElementById('custPhone').value;
+      const service = document.getElementById('custService').value;
+      const msg = document.getElementById('custMessage').value;
+
+      const formattedText = `*নতুন অনুসন্ধান (Website Enquiry)*%0A%0A👤 *নাম:* ${encodeURIComponent(name)}%0A📱 *ফোন:* ${encodeURIComponent(phone)}%0A🛠 *সেবা:* ${encodeURIComponent(service)}%0A💬 *মেসেজ:* ${encodeURIComponent(msg)}`;
+      window.open(`https://wa.me/918116326876?text=${formattedText}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
