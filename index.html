@@ -379,3 +379,693 @@ function searchServices() {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sau Digital Solutions - CSC & Digital Online Services</title>
+  <meta name="description" content="Sau Digital Solutions - CSC & Digital Online Services in Patashpur II, Purba Medinipur. PAN Card, Voter ID, Passport, Certificates, Banking Services and more.">
+  <style>
+    :root {
+      --royal-blue: #004aad;
+      --deep-navy: #003b8e;
+      --emerald-teal: #00b894;
+      --whatsapp-green: #25D366;
+      --call-blue: #007bff;
+      --warm-orange: #ff9800;
+      --light-slate: #eef5ff;
+      --off-white: #f5f7fa;
+      --white: #ffffff;
+      --text-dark: #1e293b;
+      --text-muted: #555555;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--off-white);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding-bottom: 70px;
+    }
+
+    /* Notice Ticker (NEW) */
+    .notice-bar {
+      background: var(--deep-navy);
+      color: var(--white);
+      padding: 8px 15px;
+      font-size: 0.9rem;
+      overflow: hidden;
+      white-space: nowrap;
+      border-bottom: 2px solid var(--warm-orange);
+    }
+
+    .notice-text {
+      display: inline-block;
+      animation: ticker 22s linear infinite;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--royal-blue), var(--emerald-teal));
+      color: var(--white);
+      text-align: center;
+      padding: 25px 20px;
+    }
+
+    header img {
+      width: 90px;
+      height: auto;
+      border-radius: 12px;
+      background: var(--white);
+      padding: 5px;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      margin-bottom: 12px;
+    }
+
+    /* Live Open/Closed Status Badge (NEW) */
+    .status-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--deep-navy);
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 12px 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--emerald-teal);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 35px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--royal-blue);
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+    }
+
+    /* Search Box */
+    .search-box {
+      max-width: 500px;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 13px 20px;
+      font-size: 1rem;
+      border: 2px solid var(--royal-blue);
+      border-radius: 30px;
+      outline: none;
+      box-shadow: 0 3px 10px rgba(0, 74, 173, 0.1);
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 20px 15px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      border-bottom: 4px solid var(--royal-blue);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 74, 173, 0.15);
+      border-bottom-color: var(--emerald-teal);
+    }
+
+    .service-card .icon {
+      font-size: 2rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      color: var(--text-dark);
+    }
+
+    .service-card . bengali-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .inquire-btn {
+      display: inline-block;
+      background: var(--light-slate);
+      color: var(--royal-blue);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .inquire-btn:hover {
+      background: var(--whatsapp-green);
+      color: var(--white);
+    }
+
+    /* Document Checklist Section (NEW) */
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .doc-card {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 5px solid var(--warm-orange);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .doc-card h4 {
+      color: var(--deep-navy);
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .doc-card ul {
+      padding-left: 18px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .doc-card ul li {
+      margin-bottom: 5px;
+    }
+
+    /* Customer Reviews Section */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .review-card {
+      background: var(--white);
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      border-top: 4px solid var(--emerald-teal);
+    }
+
+    .stars {
+      color: var(--warm-orange);
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .review-card h4 {
+      color: var(--royal-blue);
+      margin-bottom: 6px;
+    }
+
+    .review-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Contact & Hours Section */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .contact-box {
+      background: var(--white);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .contact-box h3 {
+      color: var(--deep-navy);
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--light-slate);
+      padding-bottom: 8px;
+    }
+
+    .contact-box p {
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
+
+    .contact-box a {
+      color: var(--royal-blue);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.92rem;
+    }
+
+    .hours-table td {
+      padding: 8px 6px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .hours-table td:last-child {
+      text-align: right;
+      font-weight: bold;
+      color: var(--emerald-teal);
+    }
+
+    /* Map */
+    .map-box iframe {
+      width: 100%;
+      height: 350px;
+      border: 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    /* Floating Action Buttons */
+    .floating-bar {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      display: flex;
+      gap: 10px;
+      z-index: 2000;
+      flex-wrap: wrap;
+    }
+
+    .float-btn {
+      padding: 12px 18px;
+      border-radius: 50px;
+      color: var(--white);
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: transform 0.2s;
+    }
+
+    .float-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-call { background: var(--call-blue); }
+    .btn-wa { background: var(--whatsapp-green); }
+    .btn-loc { background: var(--warm-orange); }
+
+    /* Footer */
+    footer {
+      background: var(--deep-navy);
+      color: var(--white);
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 30px;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NEW: Scrolling Notice Ticker -->
+  <div class="notice-bar">
+    <div class="notice-text">
+      📢 স্বাগতম <strong>Sau Digital Solutions</strong>-এ! এখানে প্যান কার্ড, ভোটার কার্ড, পাসপোর্ট, ইনকাম ও কাস্ট সার্টিফিকেট, সরকারি প্রকল্পের ফর্ম ফিলাপ, ব্যাংকিং ও ইলেকট্রিক বিল পেমেন্ট যত্ন সহকারে করা হয়। যেকোনো প্রয়োজনে কল করুন: 9832889193 / 8116326876
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header id="home">
+    <img src="https://goutamsau440-oss.github.io/sau-digital-solutions/logo.png" alt="Sau Digital Solutions Logo">
+    <h1>Sau Digital Solutions</h1>
+    <p>CSC & Digital Online Services</p>
+    <!-- NEW: Live Open/Closed Indicator -->
+    <div id="shopStatus" class="status-badge">⏰ সময়সূচী লোড হচ্ছে...</div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#documents">Required Documents</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact & Hours</a>
+  </nav>
+
+  <!-- Services Section (Existing 17 + 4 Missing Services Added) -->
+  <section class="container" id="services">
+    <h2 class="section-title">Our Services (আমাদের পরিষেবাসমূহ)</h2>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="🔍 Search services (e.g. PAN, Passport, Certificate, Bill)..." onkeyup="searchService()">
+    </div>
+
+    <div class="services-grid" id="serviceList">
+      <div class="service-card">
+        <div class="icon">🆔</div>
+        <h3>ID & Biometric Services</h3>
+        <p class="bengali-sub">পরিচয়পত্র সংক্রান্ত পরিষেবা</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20help%20with%20ID%20Services" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">💳</div>
+        <h3>PAN Card</h3>
+        <p class="bengali-sub">নতুন প্যান কার্ড ও সংশোধন</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20PAN%20Card%20service" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🗳️</div>
+        <h3>Voter ID</h3>
+        <p class="bengali-sub">ভোটার কার্ড আবেদন ও সংশোধন</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Voter%20ID%20service" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🌾</div>
+        <h3>Ration Card</h3>
+        <p class="bengali-sub">রেশন কার্ডের যাবতীয় কাজ</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Ration%20Card%20service" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📄</div>
+        <h3>Income Certificate</h3>
+        <p class="bengali-sub">ইনকাম সার্টিফিকেট আবেদন</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Income%20Certificate" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📜</div>
+        <h3>Caste Certificate</h3>
+        <p class="bengali-sub">কাস্ট সার্টিফিকেট (SC/ST/OBC)</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Caste%20Certificate" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🏠</div>
+        <h3>Residence Certificate</h3>
+        <p class="bengali-sub">বাসিন্দা (Domicile) সার্টিফিকেট</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Residence%20Certificate" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">👶</div>
+        <h3>Birth Certificate</h3>
+        <p class="bengali-sub">জন্ম সার্টিফিকেট আবেদন</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Birth%20Certificate" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🕊️</div>
+        <h3>Death Certificate</h3>
+        <p class="bengali-sub">মৃত্যু সার্টিফিকেট আবেদন</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Death%20Certificate" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🛂</div>
+        <h3>Passport Assistance</h3>
+        <p class="bengali-sub">নতুন পাসপোর্ট ও রিনিউয়াল</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Passport%20Assistance" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🚗</div>
+        <h3>Driving Licence</h3>
+        <p class="bengali-sub">ড্রাইভিং লাইসেন্স ও যানবাহন পরিষেবা</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Driving%20Licence%20service" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">💻</div>
+        <h3>Online Form Fill-up</h3>
+        <p class="bengali-sub">চাকরি, কলেজ ও স্কলারশিপ ফর্ম</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Online%20Form%20Fill-up" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🏛️</div>
+        <h3>Govt Scheme Applications</h3>
+        <p class="bengali-sub">সরকারি প্রকল্পের আবেদন ও e-KYC</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Govt%20Scheme%20or%20e-KYC%20service" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">⚡</div>
+        <h3>Electricity Bill Payment</h3>
+        <p class="bengali-sub">ইলেকট্রিক বিল পেমেন্ট</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20want%20to%20pay%20Electricity%20Bill" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📱</div>
+        <h3>Mobile & DTH Recharge</h3>
+        <p class="bengali-sub">মোবাইল ও টিভি রিচার্জ</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Mobile/DTH%20Recharge" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">💸</div>
+        <h3>Money Transfer</h3>
+        <p class="bengali-sub">যেকোনো ব্যাংকে টাকা পাঠানো</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Money%20Transfer%20service" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🛡️</div>
+        <h3>Insurance Services</h3>
+        <p class="bengali-sub">বাইক, গাড়ি ও জীবন বীমা</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Insurance%20Services" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🏦</div>
+        <h3>Banking Services</h3>
+        <p class="bengali-sub">টাকা তোলা, জমা ও ব্যালেন্স চেক</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Banking%20Services" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🖨️</div>
+        <h3>Printing & Scanning</h3>
+        <p class="bengali-sub">কালার প্রিন্ট, জেরক্স ও স্ক্যানিং</p>
+        <a href="https://wa.me/918116326876?text=Hello,%20I%20need%20Printing/Scanning%20service" target="_blank" class="inquire-btn">💬 WhatsApp Inquiry</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW SECTION: Required Documents Checklist -->
+  <section class="container" id="documents">
+    <h2 class="section-title">📋 প্রয়োজনীয় ডকুমেন্টস (Required Documents)</h2>
+    <div class="docs-grid">
+      <div class="doc-card">
+        <h4>💳 PAN Card (প্যান কার্ড)</h4>
+        <ul>
+          <li>পরিচয়পত্র ও ঠিকানার প্রমাণপত্র</li>
+          <li>২ কপি পাসপোর্ট সাইজ রঙিন ছবি</li>
+          <li>সচল মোবাইল নম্বর</li>
+        </ul>
+      </div>
+      <div class="doc-card">
+        <h4>📄 Income / Residence Certificate</h4>
+        <ul>
+          <li>আবেদনকারীর ফটো ও পরিচয়পত্র</li>
+          <li>প্রধানের ইনকাম/বাসিন্দা সার্টিফিকেট</li>
+          <li>রেশন কার্ড বা ভোটার কার্ড</li>
+        </ul>
+      </div>
+      <div class="doc-card">
+        <h4>🛂 Passport (পাসপোর্ট আবেদন)</h4>
+        <ul>
+          <li>ভোটার কার্ড ও প্যান কার্ড</li>
+          <li>জন্ম সার্টিফিকেট বা মাধ্যমিকের অ্যাডমিট</li>
+          <li>ব্যাংক পাসবইয়ের প্রথম পাতা</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews Section (Preserved from your current site) -->
+  <section class="container" id="reviews">
+    <h2 class="section-title">⭐ Customer Reviews</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <h4>Rahul Das</h4>
+        <p>Very fast ID & PAN Card service. Highly recommended.</p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <h4>Priya Sen</h4>
+        <p>Excellent CSC services with quick response and affordable charges.</p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <h4>Sourav Mondal</h4>
+        <p>Professional Digital Service Centre. Friendly behaviour and genuine work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Opening Hours Section -->
+  <section class="container" id="contact">
+    <h2 class="section-title">Contact Us & Opening Hours</h2>
+    <div class="contact-wrapper">
+      <div class="contact-box">
+        <h3>📞 যোগাযোগের ঠিকানা</h3>
+        <p><strong>Phone 1:</strong> <a href="tel:9832889193">9832889193</a></p>
+        <p><strong>Phone 2 / WhatsApp:</strong> <a href="tel:08116326876">081163 26876</a></p>
+        <p><strong>Address:</strong> RAM KRISHNA NIBAS, PRATAPDIGHI-BALYAGOBINDAPUR RD, Krishnanagar, Pania, Patashpur II, Purba Medinipur, West Bengal - 721440</p>
+      </div>
+
+      <!-- NEW: Business Hours Box -->
+      <div class="contact-box">
+        <h3>⏰ দোকান খোলার সময় (Opening Hours)</h3>
+        <p>সোমবার থেকে রবিবার (সপ্তাহে ৭ দিন খোলা):</p>
+        <table class="hours-table">
+          <tr>
+            <td>সকালের শিফট (Morning)</td>
+            <td>09:00 AM – 02:00 PM</td>
+          </tr>
+          <tr>
+            <td>বিকেলের শিফট (Evening)</td>
+            <td>04:00 PM – 10:00 PM</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Location Map -->
+  <section class="container" id="location">
+    <h2 class="section-title">📍 Our Location</h2>
+    <div class="map-box">
+      <iframe 
+        src="https://www.google.com/maps?q=PRATAPDIGHI-BALYAGOBINDAPUR+RD,+Krishnanagar,+Pania,+patashpur+ll,+Purba+Medinipur,+721440,+West+Bengal,+IN&output=embed" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Floating Buttons (Preserved Call Now, WhatsApp, Location) -->
+  <div class="floating-bar">
+    <a href="tel:9832889193" class="float-btn btn-call">📞 Call Now</a>
+    <a href="https://wa.me/918116326876" target="_blank" class="float-btn btn-wa">💬 WhatsApp</a>
+    <a href="#location" class="float-btn btn-loc">📍 Location</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>Sau Digital Solutions</strong> — CSC & Digital Online Services</p>
+    <p>© 2026 Sau Digital Solutions. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scripts for Search and Live Open/Closed Status -->
+  <script>
+    // Service Search Filter
+    function searchService() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.service-card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? 'flex' : 'none';
+      });
+    }
+
+    // Automatic Shop Open/Closed Indicator (09:00-14:00 & 16:00-22:00)
+    function updateShopStatus() {
+      const now = new Date();
+      const hours = now.getHours();
+      const statusEl = document.getElementById('shopStatus');
+      const isOpen = (hours >= 9 && hours < 14) || (hours >= 16 && hours < 22);
+
+      if (isOpen) {
+        statusEl.innerHTML = "🟢 এখন খোলা আছে (Open Now: 9AM-2PM & 4PM-10PM)";
+      } else {
+        statusEl.innerHTML = "🔴 এখন বিরতি/বন্ধ (খোলার সময়: 9AM-2PM ও 4PM-10PM)";
+      }
+    }
+    updateShopStatus();
+  </script>
+
+</body>
+</html>
