@@ -3,118 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAU DIGITAL SOLUTIONS - Official Digital & Banking Portal</title>
+    <title>SAU DIGITAL SOLUTIONS - Official E-Governance Portal</title>
     <style>
         :root {
-            --bg-main: #f8fafc;
-            --brand-dark: #0f172a;
-            --brand-blue: #1e3a8a;
-            --brand-accent: #f59e0b;
-            --brand-success: #10b981;
+            --bg-base: #f8fafc;
+            --panel-dark: #0f172a;
+            --panel-nav: #1e293b;
+            --accent-gold: #f59e0b;
+            --accent-blue: #2563eb;
+            --accent-green: #10b981;
+            --text-primary: #334155;
+            --text-light: #ffffff;
             --card-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
-            --card-hover-shadow: 0 20px 25px -5px rgba(30, 58, 138, 0.1), 0 10px 10px -6px rgba(30, 58, 138, 0.05);
+            --card-hover-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.1), 0 10px 10px -6px rgba(37, 99, 235, 0.05);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--bg-main);
-            color: #334155;
-            -webkit-font-smoothing: antialiased;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
         }
 
-        /* Modern Corporate Navbar Header */
-        .top-navbar {
-            background-color: var(--brand-dark);
-            border-bottom: 4px solid var(--brand-accent);
-            padding: 40px 20px;
+        .alert-ticker {
+            background-color: var(--accent-gold);
+            color: var(--panel-dark);
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 10px 20px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .corporate-header {
+            background: linear-gradient(135deg, var(--panel-dark), var(--panel-nav));
+            padding: 50px 20px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-bottom: 5px solid var(--accent-gold);
         }
 
-        .top-navbar h1 {
-            color: #ffffff;
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        .corporate-header h1 {
+            color: var(--text-light);
+            font-size: 3rem;
+            font-weight: 900;
         }
 
-        .top-navbar p {
-            color: var(--brand-accent);
-            font-size: 1.2rem;
+        .corporate-header p {
+            color: var(--accent-gold);
+            font-size: 1.25rem;
             font-weight: 600;
             margin-top: 8px;
-            letter-spacing: 0.5px;
         }
-
-        .top-navbar .tagline {
+        
+        .corporate-header .meta-tag {
             color: #94a3b8;
-            font-size: 0.95rem;
-            margin-top: 5px;
-            font-weight: 400;
+            font-size: 1rem;
+            margin-top: 8px;
         }
 
-        .container {
-            max-width: 1240px;
-            margin: -25px auto 50px auto;
-            padding: 0 20px;
+        .main-wrapper {
+            max-width: 1280px;
+            margin: 30px auto 60px auto;
+            padding: 0 24px;
         }
 
-        /* High-Definition Info Banner */
-        .info-panel {
+        .telemetry-panel {
             background: #ffffff;
-            border-radius: 12px;
-            padding: 20px 30px;
+            border-radius: 14px;
+            padding: 24px 35px;
             box-shadow: var(--card-shadow);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
-            border-top: 4px solid var(--brand-success);
+            border-top: 4px solid var(--accent-green);
+            margin-bottom: 30px;
         }
 
-        .info-item {
-            font-size: 1.05rem;
-            font-weight: 500;
-            color: #1e293b;
-        }
-
-        .info-item strong {
-            color: var(--brand-blue);
-        }
-
-        .badge-active {
-            background-color: #d1fae5;
-            color: #065f46;
-            padding: 4px 12px;
-            border-radius: 9999px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-left: 8px;
-            border: 1px solid #a7f3d0;
-        }
-
-        /* Professional Category Headers */
-        .category-header {
+        .cluster-header {
             font-size: 1.5rem;
-            color: var(--brand-dark);
-            font-weight: 700;
+            color: var(--panel-dark);
+            font-weight: 800;
             margin: 45px 0 20px 0;
             display: flex;
             align-items: center;
+            border-bottom: 2px solid #cbd5e1;
             padding-bottom: 10px;
-            border-bottom: 2px solid #e2e8f0;
         }
 
-        .category-number {
-            background-color: var(--brand-blue);
+        .cluster-id {
+            background: var(--accent-blue);
             color: white;
             width: 32px;
             height: 32px;
@@ -122,201 +105,208 @@
             align-items: center;
             justify-content: center;
             border-radius: 6px;
-            font-size: 0.95rem;
             margin-right: 12px;
             font-weight: bold;
         }
 
-        /* Industrial Grid Layout */
-        .portal-layout {
+        .cluster-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .service-node {
+        .portal-node-card {
             background: #ffffff;
-            border-radius: 12px;
-            padding: 24px;
+            border-radius: 14px;
+            padding: 25px;
             box-shadow: var(--card-shadow);
             border: 1px solid #e2e8f0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: transform 0.3s;
         }
 
-        .service-node:hover {
-            transform: translateY(-6px);
+        .portal-node-card:hover {
+            transform: translateY(-5px);
             box-shadow: var(--card-hover-shadow);
-            border-color: #bfdbfe;
         }
 
-        .node-meta h3 {
-            font-size: 1.25rem;
+        .node-content h3 {
+            font-size: 1.2rem;
             color: #0f172a;
-            font-weight: 700;
             margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        .node-meta p {
+        .node-content p {
             font-size: 0.95rem;
             color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
-        /* Action Micro-interactions */
-        .node-action-btn {
-            display: block;
-            width: 100%;
+        .node-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .node-link-btn {
+            flex: 2;
             text-align: center;
             background-color: #f1f5f9;
-            color: var(--brand-blue);
+            color: var(--panel-dark);
             padding: 12px;
             text-decoration: none;
             border-radius: 8px;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.95rem;
-            transition: all 0.2s ease;
             border: 1px solid #e2e8f0;
         }
 
-        .service-node:hover .node-action-btn {
-            background-color: var(--brand-blue);
+        .portal-node-card:hover .node-link-btn {
+            background: var(--panel-dark);
             color: #ffffff;
-            border-color: var(--brand-blue);
-            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
         }
 
-        /* Enterprise Contact Desk */
-        .enterprise-desk {
+        .one-click-copy-btn {
+            flex: 1;
+            background-color: #fff;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .one-click-copy-btn:hover {
+            background-color: #fef3c7;
+            color: #d97706;
+            border-color: #fcd34d;
+        }
+
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #10b981;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 1000;
+        }
+
+        .infrastructure-desk {
             background: #ffffff;
-            border-radius: 14px;
+            border-radius: 16px;
             box-shadow: var(--card-shadow);
-            padding: 35px;
-            margin-top: 55px;
-            border-left: 6px solid var(--brand-blue);
-            border-right: 1px solid #e2e8f0;
+            padding: 40px;
+            margin-top: 60px;
+            border-left: 6px solid var(--accent-blue);
             border-top: 1px solid #e2e8f0;
             border-bottom: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
         }
 
-        .desk-title {
-            font-size: 1.4rem;
-            color: var(--brand-dark);
+        .desk-header {
+            font-size: 1.5rem;
+            color: var(--panel-dark);
             margin-bottom: 15px;
-            font-weight: 700;
+            font-weight: 800;
         }
 
-        .desk-body p {
-            margin-bottom: 12px;
-            font-size: 1.05rem;
-            color: #475569;
-        }
-
-        .comms-group {
+        .comms-node-group {
             display: flex;
             gap: 15px;
             margin-top: 25px;
             flex-wrap: wrap;
         }
 
-        .comms-btn {
-            padding: 14px 28px;
+        .comms-action-trigger {
+            padding: 15px 32px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 700;
-            font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.2s;
+            font-size: 1rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+            transition: all 0.3s;
         }
 
-        .comms-phone {
-            background-color: var(--brand-blue);
-            color: white;
-            box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);
-        }
-
-        .comms-whatsapp {
-            background-color: #16a34a;
-            color: white;
-            box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25);
-        }
-
-        .comms-btn:hover {
-            transform: translateY(-2px);
-            opacity: 0.95;
-        }
+        .comms-voice { background: var(--accent-blue); color: white; }
+        .comms-chat { background: #16a34a; color: white; }
+        .comms-action-trigger:hover { transform: translateY(-3px); opacity: 0.95; }
 
         footer {
-            background-color: var(--brand-dark);
+            background-color: var(--panel-dark);
             color: #64748b;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 70px;
-            border-top: 4px solid var(--brand-accent);
-            font-size: 0.9rem;
+            padding: 30px;
+            margin-top: 60px;
+            border-top: 5px solid var(--accent-gold);
         }
-
-        footer strong {
-            color: #ffffff;
-        }
+        footer strong { color: white; }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation Section -->
-    <header class="top-navbar">
+    <div class="alert-ticker">
+        <marquee behavior="scroll" direction="left" scrollamount="5">
+            ⚠️ নোটিশ: আমাদের পোর্টালে সমস্ত ডিজিটাল ও ব্যাংকিং সার্ভার সম্পূর্ণ অনলাইন ও সচল রয়েছে।
+        </marquee>
+    </div>
+
+    <header class="corporate-header">
         <h1>SAU DIGITAL SOLUTIONS</h1>
-        <p>An Authorized CSC e-Governance & Banking CSP Hub</p>
-        <div class="tagline">Providing Secure Digital Infrastructures & Citizens E-Services</div>
+        <p>Institutional E-Governance & Core Banking Center</p>
+        <div class="meta-tag">Authorized Digital Service Point • Krishnanagar, Pania, Patashpur II</div>
     </header>
 
-    <div class="container">
-        
-        <!-- Live System Operational Banner -->
-        <div class="info-panel">
-            <div class="info-item">🕒 <strong>Operational Hours:</strong> 07:30 AM - 10:00 PM <span class="badge-active">SYSTEMS ACTIVE</span></div>
-            <div class="info-item">📍 <strong>Hub Location:</strong> Krishnanagar, Pania, Patashpur II, Purba Medinipur</div>
+    <div class="main-wrapper">
+        <div class="telemetry-panel">
+            <div>🕒 <strong>সময়:</strong> 07:30 AM - 10:00 PM</div>
+            <div>📍 <strong>স্থান:</strong> কৃষ্ণনগর, পানিয়া, পটাশপুর II, পূর্ব মেদিনীপুর</div>
         </div>
 
-        <!-- CATEGORY 01 -->
-        <h2 class="category-header"><div class="category-number">01</div> National Identity Documents & Cards</h2>
-        <div class="portal-layout">
-            <div class="service-node">
-                <div class="node-meta">
-                    <h3>🆔 Aadhaar Card Services</h3>
-                    <p>New application, biometrics updates, mobile linking and secure demographic corrections.</p>
+        <!-- CLUSTER 1 -->
+        <h2 class="cluster-header"><div class="cluster-id">01</div> সরকারি মুখ্য পরিচয়পত্র ও কার্ড</h2>
+        <div class="cluster-grid">
+            <div class="portal-node-card">
+                <div class="node-content">
+                    <h3>🆔 আধার কার্ড (Aadhaar)</h3>
+                    <p>নতুন আধার কার্ড, বায়োমেट्रিক ও ডেমোগ্রাফিক সংশোধন এবং ডাউনলোড টার্মিনাল।</p>
                 </div>
-                <a href="aadhar.html" class="node-action-btn">Access Terminal</a>
-            </div>
-            <div class="service-node">
-                <div class="node-meta">
-                    <h3>💳 Permanent Account Number (PAN)</h3>
-                    <p>Instant digital e-PAN allocation, updates, corrections, and legal physical reprint requests.</p>
+                <div class="node-actions">
+                    <a href="aadhar.html" class="node-link-btn">ওপেন করুন</a>
+                    <button class="one-click-copy-btn" onclick="copyLink('aadhar.html')">📋 কপি লিংক</button>
                 </div>
-                <a href="pan.html" class="node-action-btn">Access Terminal</a>
             </div>
-            <div class="service-node">
-                <div class="node-meta">
-                    <h3>🗳️ E-Elector Card (Voter ID)</h3>
-                    <p>Fresh voter registrations, polling booth corrections, and official digital card prints.</p>
+            <div class="portal-node-card">
+                <div class="node-content">
+                    <h3>💳 প্যান কার্ড (PAN)</h3>
+                    <p>নতুন প্যান কার্ড আবেদন এবং মাত্র কয়েক মিনিটে ইনস্ট্যান্ট প্যান ডাউনলোডের সুবিধা।</p>
                 </div>
-                <a href="voter.html" class="node-action-btn">Access Terminal</a>
-            </div>
-            <div class="service-node">
-                <div class="node-meta">
-                    <h3>🌾 Digital Ration Card</h3>
-                    <p>Online data modification, status evaluation, Aadhaar verification, and structural revisions.</p>
+                <div class="node-actions">
+                    <a href="pan.html" class="node-link-btn">ওপেন করুন</a>
+                    <button class="one-click-copy-btn" onclick="copyLink('pan.html')">📋 কপি লিংক</button>
                 </div>
-                <a href="ration.html" class="node-action-btn">Access Terminal</a>
             </div>
-        </div>
-
-        <!-- CATEGORY 02 -->
+            <div class="portal-node-card">
+                <div class="node-content">
+                    <h3>🗳️ ভোটার কার্ড (Voter ID)</h3>
+                    <p>নতুন ভোটার কার্ডের নাম নথিভুক্তকরণ, সংশোধন এবং ডিজিটাল ভোটার প্রিন্ট।</p>
+                </div>
+                <div class="node-actions">
+                    <a href="voter.html" class="node-link-btn">ওপেন করুন</a>
+                    <button class="one-click-copy-btn" onclick="copyLink('voter.html')">📋 কপি লিংক</button>
+                </div>
+            </div>
+            <div class="portal-node-card">
+                <div class="node-content">
+                    <h3>🌾 রেশন কার্ড (Ration)</h3>
+                    <p>ডিজিটাল রেশন কার্ডের স্ট্যাটাসチェック, নতুন মেম্বার অ্যাড এবং সংশোধন লিংক।</p>
+                </div>
+                <div class="node-actions">
